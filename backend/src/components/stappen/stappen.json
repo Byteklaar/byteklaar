@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_stappen_stappens",
+  "info": {
+    "displayName": "stappen",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "stap_title": {
+      "type": "string"
+    }
+  }
+}

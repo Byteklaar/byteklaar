@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projecten",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projecten",
+    "displayName": "Project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titel": {
+      "type": "string"
+    },
+    "beschrijving": {
+      "type": "text"
+    },
+    "gallerij": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "extra_beschrijving": {
+      "type": "text"
+    },
+    "link_to_top": {
+      "type": "string"
+    }
+  }
+}

@@ -788,6 +788,79 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiHomepaginaHomepagina extends Schema.SingleType {
+  collectionName: 'homepaginas';
+  info: {
+    singularName: 'homepagina';
+    pluralName: 'homepaginas';
+    displayName: 'Homepagina';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header_afbeelding: Attribute.Media;
+    titel: Attribute.String;
+    titel_beschrijving: Attribute.Text;
+    banner_1: Attribute.String;
+    banner_2: Attribute.String;
+    stappen_titel: Attribute.String;
+    stappen_beschrijving: Attribute.Text;
+    stappen_cta: Attribute.String;
+    stap: Attribute.Component<'stappen.stappen', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::homepagina.homepagina',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::homepagina.homepagina',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProjectProject extends Schema.CollectionType {
+  collectionName: 'projecten';
+  info: {
+    singularName: 'project';
+    pluralName: 'projecten';
+    displayName: 'Project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titel: Attribute.String;
+    beschrijving: Attribute.Text;
+    gallerij: Attribute.Media;
+    extra_beschrijving: Attribute.Text;
+    link_to_top: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -806,6 +879,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::homepagina.homepagina': ApiHomepaginaHomepagina;
+      'api::project.project': ApiProjectProject;
     }
   }
 }
