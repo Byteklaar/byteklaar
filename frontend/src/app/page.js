@@ -1,9 +1,47 @@
-import Image from "next/image";
+import qs from "qs";
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="font-bold text-5xl text-byte-blue">Byteklaar</h1>
-    </main>
-  );
+const homePageQuery = qs.stringify({
+    populate: {
+        blocks: {
+            populate: {
+                image: {
+                    fields: ["url", "alternativeText"],
+                },
+                link: {
+                    populate: true,
+                },
+            },
+        },
+    },
+});
+
+async function getStrapiData(path) {
+    const baseUrl = "http://localhost:1337";
+
+    const url = new URL(path, baseUrl);
+    url.search = homePageQuery
+
+    console.log(url.href);
+
+    try {
+        const response = await fetch(url.href);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export default async function Home() {
+    const strapiData = await getStrapiData("/api/homepagina");
+
+    const { titel, titel_beschrijving } = strapiData.data.attributes;
+
+    return (
+        <main className="container mx-auto py-6">
+            <h1 className="text-5xl font-bold">{titel}</h1>
+            <p className="text-xl mt-4">{titel_beschrijving}</p>
+        </main>
+    );
 }
