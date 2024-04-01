@@ -35,25 +35,12 @@
     "banner_2": {
       "type": "string"
     },
-    "stappen_titel": {
-      "type": "string"
-    },
-    "stappen_beschrijving": {
-      "type": "text"
-    },
-    "stappen_cta": {
-      "type": "string"
-    },
-    "stap": {
-      "displayName": "stappen",
-      "type": "component",
-      "repeatable": true,
-      "component": "stappen.stappen"
-    },
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "layout.hero-section"
+        "layout.hero-section",
+        "layout.intro-section",
+        "layout.stappen-section"
       ]
     }
   }

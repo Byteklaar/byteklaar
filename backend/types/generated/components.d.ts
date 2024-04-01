@@ -12,6 +12,18 @@ export interface ComponentsLink extends Schema.Component {
   };
 }
 
+export interface ComponentsStappen extends Schema.Component {
+  collectionName: 'components_stappen_stappens';
+  info: {
+    displayName: 'stap';
+    icon: 'bulletList';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String;
+  };
+}
+
 export interface LayoutFooter extends Schema.Component {
   collectionName: 'components_layout_footers';
   info: {
@@ -54,14 +66,29 @@ export interface LayoutHeroSection extends Schema.Component {
   };
 }
 
-export interface StappenStappen extends Schema.Component {
-  collectionName: 'components_stappen_stappens';
+export interface LayoutIntroSection extends Schema.Component {
+  collectionName: 'components_components_intro_sections';
   info: {
-    displayName: 'stappen';
-    icon: 'bulletList';
+    displayName: 'Intro Section';
+    description: '';
   };
   attributes: {
-    stap_title: Attribute.String;
+    titel: Attribute.String;
+    beschrijving: Attribute.Blocks;
+  };
+}
+
+export interface LayoutStappenSection extends Schema.Component {
+  collectionName: 'components_layout_stappen_sections';
+  info: {
+    displayName: 'Stappen Section';
+    description: '';
+  };
+  attributes: {
+    titel: Attribute.String;
+    beschrijving: Attribute.Text;
+    stap: Attribute.Component<'components.stappen', true>;
+    link: Attribute.Component<'components.link'>;
   };
 }
 
@@ -69,10 +96,12 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'components.link': ComponentsLink;
+      'components.stappen': ComponentsStappen;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'layout.hero-section': LayoutHeroSection;
-      'stappen.stappen': StappenStappen;
+      'layout.intro-section': LayoutIntroSection;
+      'layout.stappen-section': LayoutStappenSection;
     }
   }
 }

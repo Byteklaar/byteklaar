@@ -839,11 +839,9 @@ export interface ApiHomepaginaHomepagina extends Schema.SingleType {
     titel_beschrijving: Attribute.Text;
     banner_1: Attribute.String;
     banner_2: Attribute.String;
-    stappen_titel: Attribute.String;
-    stappen_beschrijving: Attribute.Text;
-    stappen_cta: Attribute.String;
-    stap: Attribute.Component<'stappen.stappen', true>;
-    blocks: Attribute.DynamicZone<['layout.hero-section']>;
+    blocks: Attribute.DynamicZone<
+      ['layout.hero-section', 'layout.intro-section', 'layout.stappen-section']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

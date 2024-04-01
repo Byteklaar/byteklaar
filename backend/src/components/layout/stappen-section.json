@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_layout_stappen_sections",
+  "info": {
+    "displayName": "Stappen Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titel": {
+      "type": "string"
+    },
+    "beschrijving": {
+      "type": "text"
+    },
+    "stap": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.stappen"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    }
+  }
+}

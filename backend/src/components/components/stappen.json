@@ -1,12 +1,13 @@
 {
   "collectionName": "components_stappen_stappens",
   "info": {
-    "displayName": "stappen",
-    "icon": "bulletList"
+    "displayName": "stap",
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "stap_title": {
+    "text": {
       "type": "string"
     }
   }

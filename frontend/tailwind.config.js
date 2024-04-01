@@ -12,6 +12,9 @@ module.exports = {
     extend: {
       colors: {
         'byte-blue': '#0000FF',
+        'byte-terra': '#DD6030',
+        'byte-purple': '#9792E3',
+        'byte-beige': '#DDD3BF',
       },
     },
   },
