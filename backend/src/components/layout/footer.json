@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "logoTekst": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    },
+    "socialLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link"
+    },
+    "menuLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link"
+    },
+    "mail": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    },
+    "telefoon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    },
+    "adres": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    },
+    "algemeneVoorwaarden": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    },
+    "privacyBeleid": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    }
+  }
+}
