@@ -8,7 +8,7 @@ const IntroSectionProps = {
 };
 
 export function IntroSection({data}) {
-    const {titel, beschrijving} = data;
+    const {titel, beschrijving}e = data;
     return (
         <div className="flex row">
             <div className="basis-3/5 px-16 my-16">
