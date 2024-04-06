@@ -24,6 +24,18 @@ export interface ComponentsStappen extends Schema.Component {
   };
 }
 
+export interface LayoutFooterCta extends Schema.Component {
+  collectionName: 'components_layout_footer_ctas';
+  info: {
+    displayName: 'FooterCTA';
+  };
+  attributes: {
+    vraagteken: Attribute.Media;
+    titel: Attribute.String;
+    link: Attribute.Component<'components.link', true>;
+  };
+}
+
 export interface LayoutFooter extends Schema.Component {
   collectionName: 'components_layout_footers';
   info: {
@@ -97,6 +109,7 @@ declare module '@strapi/types' {
     export interface Components {
       'components.link': ComponentsLink;
       'components.stappen': ComponentsStappen;
+      'layout.footer-cta': LayoutFooterCta;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'layout.hero-section': LayoutHeroSection;
