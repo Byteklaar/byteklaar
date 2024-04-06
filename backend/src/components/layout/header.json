@@ -6,15 +6,20 @@
   },
   "options": {},
   "attributes": {
-    "logoTekst": {
-      "type": "component",
-      "repeatable": true,
-      "component": "components.link"
-    },
     "menuLink": {
       "type": "component",
       "repeatable": true,
       "component": "components.link"
+    },
+    "logoImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

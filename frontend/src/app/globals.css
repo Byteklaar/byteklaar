@@ -10,8 +10,5 @@
         font-display: swap;
         src: url("../../public/fonts/Avantt-Medium.woff2") format('woff2');
     }
-    html {
-        /*font-family: "Avantt";*/
-    }
 }
 

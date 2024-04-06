@@ -61,8 +61,8 @@ export interface LayoutHeader extends Schema.Component {
     description: '';
   };
   attributes: {
-    logoTekst: Attribute.Component<'components.link', true>;
     menuLink: Attribute.Component<'components.link', true>;
+    logoImage: Attribute.Media;
   };
 }
 

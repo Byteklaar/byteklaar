@@ -24,12 +24,12 @@ const HeroSectionProps = {
 export function HeroSection({data}) {
     const { image, link } = data;
     return (
-        <header className="relative h-[600px] overflow-hidden">
+        <header className="relative h-[800px] overflow-hidden">
             <StrapiImage
                 alt="Background"
                 className="absolute inset-0 object-cover w-full h-full"
                 height={1080}
-                src={image.data.attributes.url}
+                src={image.url}
                 width={1920}
             />
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white bg-black bg-opacity-20">

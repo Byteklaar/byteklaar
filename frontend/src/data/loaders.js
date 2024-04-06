@@ -48,3 +48,27 @@ export async function getHomePageData() {
 
     return await fetchData(url.href);
 }
+
+export async function getGlobalPageData() {
+    const url = new URL('/api/global', baseUrl);
+
+    url.search = qs.stringify({
+        populate: [
+            "header.logoImage",
+            "header.menuLink",
+            "footerCTA.vraagteken",
+            "footerCTA.titel",
+            "footerCTA.link",
+            "footer.logoTekst",
+            "footer.socialLink",
+            "footer.menuLink",
+            "footer.mail",
+            "footer.telefoon",
+            "footer.adres",
+            "footer.algemeneVoorwaarden",
+            "footer.privacyBeleid"
+        ]
+    });
+
+    return await fetchData(url.href);
+}

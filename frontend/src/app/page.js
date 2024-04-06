@@ -19,7 +19,7 @@ function blockRenderer(block) {
 export default async function Home() {
     const strapiData = await getHomePageData();
 
-    const {blocks} = strapiData.data.attributes;
+    const {blocks} = strapiData;
     if (!blocks) return <p>No sections found</p>;
 
     return <main>{blocks.map((block) => blockRenderer(block))}</main>;
