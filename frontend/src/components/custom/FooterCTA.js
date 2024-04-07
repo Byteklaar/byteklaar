@@ -14,9 +14,11 @@ const FooterCtaProps = {
 
 export async function FooterCTA({data}) {
     const {image, titel, link} = data;
+    // TODO achtergrond terra cotta & 3d object als image
+    // TODO animatie 3d object
     return (
         <div className="flex bg-byte-blue">
-            <div className="h-4/6 flex-1">
+            <div className="h-4/6 flex-1 bg-byte-terra">
                 <StrapiImage className="w-full h-full object-cover"
                              src={image.url}
                              width={100}

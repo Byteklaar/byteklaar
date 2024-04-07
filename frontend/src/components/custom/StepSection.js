@@ -18,6 +18,7 @@ const StepSectionProps = {
 
 export function StepSection({data}) {
     const {titel, beschrijving, stap, link} = data;
+    // TODO stap scroll animatie
     return (
         <div className="container">
             <div className="px-16 my-16">
