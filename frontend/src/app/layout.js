@@ -1,6 +1,7 @@
 import "./globals.css";
 import {getGlobalPageData} from "@/data/loaders";
 import {Header} from "@/components/custom/Header";
+import {Footer} from "@/components/custom/Footer";
 
 export const metadata = {
     title: "Byteklaar",
@@ -13,7 +14,8 @@ export default async function RootLayout({children}) {
         <html lang="en">
         <body className="font-display">
             <Header data={globalData.header}/>
-            <div>{children}</div>
+                <div>{children}</div>
+            <Footer data={globalData.footer}/>
         </body>
         </html>
     );

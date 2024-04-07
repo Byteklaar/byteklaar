@@ -28,6 +28,7 @@ export interface LayoutFooterCta extends Schema.Component {
   collectionName: 'components_layout_footer_ctas';
   info: {
     displayName: 'FooterCTA';
+    description: '';
   };
   attributes: {
     vraagteken: Attribute.Media;
@@ -43,14 +44,13 @@ export interface LayoutFooter extends Schema.Component {
     description: '';
   };
   attributes: {
-    logoTekst: Attribute.Component<'components.link'>;
     socialLink: Attribute.Component<'components.link', true>;
     menuLink: Attribute.Component<'components.link', true>;
     mail: Attribute.Component<'components.link'>;
     telefoon: Attribute.Component<'components.link'>;
-    adres: Attribute.Component<'components.link'>;
     algemeneVoorwaarden: Attribute.Component<'components.link'>;
     privacyBeleid: Attribute.Component<'components.link'>;
+    adres: Attribute.Component<'components.link'>;
   };
 }
 

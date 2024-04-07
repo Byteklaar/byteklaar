@@ -6,11 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "logoTekst": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.link"
-    },
     "socialLink": {
       "type": "component",
       "repeatable": true,
@@ -31,17 +26,17 @@
       "repeatable": false,
       "component": "components.link"
     },
-    "adres": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.link"
-    },
     "algemeneVoorwaarden": {
       "type": "component",
       "repeatable": false,
       "component": "components.link"
     },
     "privacyBeleid": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    },
+    "adres": {
       "type": "component",
       "repeatable": false,
       "component": "components.link"

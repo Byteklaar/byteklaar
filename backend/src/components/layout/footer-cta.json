@@ -1,19 +1,21 @@
 {
   "collectionName": "components_layout_footer_ctas",
   "info": {
-    "displayName": "FooterCTA"
+    "displayName": "FooterCTA",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "vraagteken": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "titel": {
       "type": "string"
