@@ -1,6 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 import {StrapiImage} from "@/components/custom/StrapiImage";
 import {LinkButton} from "@/components/ui/LinkButton";
+
+function getIcon(name) {
+    switch (name) {
+        case "LinkedIn":
+            return <LinkedInIcon className="w-12 h-12 mb-4 text-gray-900" />;
+        case "Instagram":
+            return <InstagramIcon className="w-12 h-12 mb-4 text-gray-900" />;
+        case "Facebook":
+            return <FacebookIcon className="w-12 h-12 mb-4 text-gray-900" />;
+        default:
+            return null;
+    }
+}
 
 const FooterProps = {
     data: {
@@ -62,7 +76,7 @@ export async function Footer({data}) {
                     <h2></h2>
                 </div>
             </div>
-            <div className="p-4 bg-byte-beige flex items-center justify-between">
+            <div className="py-8 px-16 bg-byte-beige flex items-center justify-between">
                 <div className="container flex justify-between">
                     <div className="">
                         {menuLink.map((menu) => (
@@ -70,31 +84,49 @@ export async function Footer({data}) {
                         ))}
                     </div>
                     <div className="flex">
-                        <div className="grid grid-cols-2 grid-rows-2 gap-12">
+                        <div className="grid grid-cols-2 grid-rows-2 gap-16">
                             <div>
-                                <Link href={mail.url}>{mail.text}</Link>
-                                <Link href={telefoon.url}>{telefoon.text}</Link>
+                                <Link className="block" href={mail.url}>{mail.text}</Link>
+                                <Link className="block" href={telefoon.url}>{telefoon.text}</Link>
                             </div>
                             <div>
                                 <Link className="block w-8/12" target={adres.isExternal ? '' : '_blank'}
                                       href={adres.url}>{adres.text}</Link>
                             </div>
                             <div>
-                                <Link href={algemeneVoorwaarden.url}>{algemeneVoorwaarden.text}</Link>
+                                <Link className="text-xs" href={algemeneVoorwaarden.url}>{algemeneVoorwaarden.text}</Link>
                             </div>
                             <div>
-                                <Link href={privacyBeleid.url}>{privacyBeleid.text}</Link>
+                                <Link className="text-xs" href={privacyBeleid.url}>{privacyBeleid.text}</Link>
                             </div>
                         </div>
-                        <div>
+                        <div className="flex ms-16">
                             {socialLink.map((menu) => (
-                                <Link className="text-black me-8 text-md" href={menu.url}
-                                      key={menu.id}>{menu.text}</Link>
+                                <Link className="text-black me-2" href={menu.url}
+                                      key={menu.id}>{getIcon(menu.text)}</Link>
                             ))}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    );
+}
+
+function FacebookIcon() {
+    return (
+        <Image width={32} height={32} alt="Icon Facebook" src="/icons/linkedin.svg"/>
+    );
+}
+
+function InstagramIcon() {
+    return (
+        <Image width={32} height={32} alt="Icon Instagram" src="/icons/linkedin.svg"/>
+    );
+}
+
+function LinkedInIcon() {
+    return (
+        <Image width={32} height={32} alt="Icon LinkedIn" src="/icons/linkedin.svg"/>
     );
 }
