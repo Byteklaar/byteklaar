@@ -31,7 +31,7 @@ export function StepSection({data}) {
                 </div>
                 <div className="w-4/12 mr-0 ml-auto mt-16">
                         <p className="mb-6 text-lg">{beschrijving}</p>
-                        <LinkButton link={link.url} tekst={link.text} color="byte-blue"/>
+                        <LinkButton link={link.url} tekst={link.text} textColor="white" bgColor="byte-blue"/>
                 </div>
             </div>
         </div>

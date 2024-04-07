@@ -56,9 +56,9 @@ export async function getGlobalPageData() {
         populate: [
             "header.logoImage",
             "header.menuLink",
-            "footerCTA.vraagteken",
-            "footerCTA.titel",
-            "footerCTA.link",
+            "footerCta.image",
+            "footerCta.titel",
+            "footerCta.link",
             "footer.logoTekst",
             "footer.socialLink",
             "footer.menuLink",

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-export function LinkButton({link, tekst, color}) {
+export function LinkButton({link, tekst, bgColor, textColor}) {
     return (
-        <Link className={`text-white px-8 py-6 rounded-full inline-block bg-${color}`} href={link}>{tekst}</Link>
+        <Link className={`px-16 py-6 rounded-full inline-block bg-${bgColor} text-${textColor}`} href={link}>{tekst}</Link>
     );
 }

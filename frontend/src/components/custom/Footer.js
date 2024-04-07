@@ -59,23 +59,13 @@ const FooterProps = {
             text: "",
             url: "",
         },
-        vraagteken: {},
-        link: {},
-        titel: "",
     }
 }
 
 export async function Footer({data}) {
     const {menuLink, adres, mail, telefoon, algemeneVoorwaarden, privacyBeleid, socialLink} = data;
     return (
-        <div className="">
-            <div className="flex">
-                <div>
-                </div>
-                <div>
-                    <h2></h2>
-                </div>
-            </div>
+        <div>
             <div className="py-8 px-16 bg-byte-beige flex items-center justify-between">
                 <div className="container flex justify-between">
                     <div className="">
@@ -86,11 +76,11 @@ export async function Footer({data}) {
                     <div className="flex">
                         <div className="grid grid-cols-2 grid-rows-2 gap-16">
                             <div>
-                                <Link className="block" href={mail.url}>{mail.text}</Link>
+                                <Link className="block leading-5" href={mail.url}>{mail.text}</Link>
                                 <Link className="block" href={telefoon.url}>{telefoon.text}</Link>
                             </div>
                             <div>
-                                <Link className="block w-8/12" target={adres.isExternal ? '' : '_blank'}
+                                <Link className="block w-8/12 leading-5" target={adres.isExternal ? '' : '_blank'}
                                       href={adres.url}>{adres.text}</Link>
                             </div>
                             <div>
@@ -102,7 +92,7 @@ export async function Footer({data}) {
                         </div>
                         <div className="flex ms-16">
                             {socialLink.map((menu) => (
-                                <Link className="text-black me-2" href={menu.url}
+                                <Link target="_blank" className="text-black me-1" href={menu.url}
                                       key={menu.id}>{getIcon(menu.text)}</Link>
                             ))}
                         </div>
@@ -115,18 +105,18 @@ export async function Footer({data}) {
 
 function FacebookIcon() {
     return (
-        <Image width={32} height={32} alt="Icon Facebook" src="/icons/linkedin.svg"/>
+        <Image width={32} height={32} alt="Byteklaar Facebook" src="/icons/facebook.svg"/>
     );
 }
 
 function InstagramIcon() {
     return (
-        <Image width={32} height={32} alt="Icon Instagram" src="/icons/linkedin.svg"/>
+        <Image width={32} height={32} alt="Byteklaar Instagram" src="/icons/instagram.svg"/>
     );
 }
 
 function LinkedInIcon() {
     return (
-        <Image width={32} height={32} alt="Icon LinkedIn" src="/icons/linkedin.svg"/>
+        <Image width={32} height={32} alt="Byteklaar LinkedIn" src="/icons/linkedin.svg"/>
     );
 }

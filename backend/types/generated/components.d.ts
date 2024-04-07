@@ -31,9 +31,9 @@ export interface LayoutFooterCta extends Schema.Component {
     description: '';
   };
   attributes: {
-    vraagteken: Attribute.Media;
+    image: Attribute.Media;
     titel: Attribute.String;
-    link: Attribute.Component<'components.link', true>;
+    link: Attribute.Component<'components.link'>;
   };
 }
 

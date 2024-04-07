@@ -29,6 +29,11 @@
       "type": "component",
       "repeatable": false,
       "component": "layout.footer"
+    },
+    "footerCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.footer-cta"
     }
   }
 }

@@ -804,6 +804,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
     description: Attribute.Text;
     header: Attribute.Component<'layout.header'>;
     footer: Attribute.Component<'layout.footer'>;
+    footerCta: Attribute.Component<'layout.footer-cta'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
