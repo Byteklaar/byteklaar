@@ -92,7 +92,7 @@ export async function getAanpakPageData() {
                 populate: {
                     tekst_2: "",
                     image: {
-                        fields: ["url", "alternativeText"],
+                        fields: ["url"],
                     }
                 },
             },
