@@ -1,7 +1,7 @@
 import {HeroSection} from "@/components/custom/Home/HeroSection";
 import {IntroSection} from "@/components/custom/Home/IntroSection";
 import {StepSection} from "@/components/custom/Home/StepSection";
-import {getHomePageData} from "@/data/loaders";
+import {getAanpakPageData} from "@/data/loaders";
 
 function blockRenderer(block) {
     switch (block.__component) {
@@ -16,8 +16,8 @@ function blockRenderer(block) {
     }
 }
 
-export default async function Page() {
-    const strapiData = await getHomePageData();
+export default async function Aanpak() {
+    const strapiData = await getAanpakPageData();
 
     const {blocks} = strapiData;
     if (!blocks) return <p>No sections found</p>;

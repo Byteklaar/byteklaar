@@ -72,3 +72,32 @@ export async function getGlobalPageData() {
 
     return await fetchData(url.href);
 }
+
+export async function getGlobalPageMetadata() {
+    const url = new URL("/api/global", baseUrl);
+
+    url.search = qs.stringify({
+        fields: ["titel", "beschrijving"]
+    })
+
+    return await fetchData(url.href);
+}
+
+export async function getAanpakPageData() {
+    const url = new URL('/api/aanpak', baseUrl);
+
+    url.search = qs.stringify({
+        populate: {
+            blocks: {
+                populate: {
+                    tekst_2: "",
+                    image: {
+                        fields: ["url", "alternativeText"],
+                    }
+                },
+            },
+        },
+    });
+
+    return await fetchData(url.href);
+}

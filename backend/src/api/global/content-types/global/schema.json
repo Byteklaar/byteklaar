@@ -15,7 +15,7 @@
     "titel": {
       "type": "string"
     },
-    "description": {
+    "beschrijving": {
       "type": "text"
     },
     "header": {

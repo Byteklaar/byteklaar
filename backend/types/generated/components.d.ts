@@ -21,6 +21,8 @@ export interface ComponentsStappen extends Schema.Component {
   };
   attributes: {
     text: Attribute.String;
+    afbeelding: Attribute.Media;
+    beschrijving: Attribute.Blocks;
   };
 }
 

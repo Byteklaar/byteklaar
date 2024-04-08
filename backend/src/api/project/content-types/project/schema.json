@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project",
     "pluralName": "projecten",
-    "displayName": "Project"
+    "displayName": "Project",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,20 +19,18 @@
       "type": "text"
     },
     "gallerij": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "extra_beschrijving": {
       "type": "text"
-    },
-    "link_to_top": {
-      "type": "string"
     }
   }
 }

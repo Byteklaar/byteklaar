@@ -1,13 +1,16 @@
 import "./globals.css";
-import {getGlobalPageData} from "@/data/loaders";
+import {getGlobalPageData, getGlobalPageMetadata} from "@/data/loaders";
 import {Header} from "@/components/custom/Header";
 import {Footer} from "@/components/custom/Footer";
 import {FooterCTA} from "@/components/custom/FooterCTA";
 
-export const metadata = {
-    title: "Byteklaar",
-    description: "Jouw oplossingen in een hapklare website.",
-};
+export async function generateMetadata() {
+    const metadata = await getGlobalPageMetadata();
+    return {
+        title: metadata?.titel,
+        description: metadata?.beschrijving,
+    };
+}
 
 export default async function RootLayout({children}) {
     const globalData = await getGlobalPageData();

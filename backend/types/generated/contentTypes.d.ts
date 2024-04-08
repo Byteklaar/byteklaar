@@ -788,6 +788,66 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAanpakAanpak extends Schema.SingleType {
+  collectionName: 'aanpaks';
+  info: {
+    singularName: 'aanpak';
+    pluralName: 'aanpaks';
+    displayName: 'Aanpak';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    tekst_2: Attribute.Text;
+    stappen: Attribute.Component<'layout.stappen-section'>;
+    intro: Attribute.Component<'layout.intro-section'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::aanpak.aanpak',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::aanpak.aanpak',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogBlog extends Schema.CollectionType {
+  collectionName: 'blogs';
+  info: {
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blog';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    titel: Attribute.String;
+    beschrijving: Attribute.Text;
+    tekst: Attribute.Blocks;
+    afbeelding: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Schema.SingleType {
   collectionName: 'globals';
   info: {
@@ -801,7 +861,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
   attributes: {
     titel: Attribute.String;
-    description: Attribute.Text;
+    beschrijving: Attribute.Text;
     header: Attribute.Component<'layout.header'>;
     footer: Attribute.Component<'layout.footer'>;
     footerCta: Attribute.Component<'layout.footer-cta'>;
@@ -867,6 +927,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
     singularName: 'project';
     pluralName: 'projecten';
     displayName: 'Project';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -876,7 +937,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
     beschrijving: Attribute.Text;
     gallerij: Attribute.Media;
     extra_beschrijving: Attribute.Text;
-    link_to_top: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -913,6 +973,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::aanpak.aanpak': ApiAanpakAanpak;
+      'api::blog.blog': ApiBlogBlog;
       'api::global.global': ApiGlobalGlobal;
       'api::homepagina.homepagina': ApiHomepaginaHomepagina;
       'api::project.project': ApiProjectProject;
