@@ -1,18 +1,18 @@
-import {HeroSection} from "@/components/custom/Home/HeroSection";
-import {IntroSection} from "@/components/custom/Home/IntroSection";
-import {StepSection} from "@/components/custom/Home/StepSection";
+import {IntroSection} from "@/components/custom/Aanpak/IntroSection";
+import {StepSection} from "@/components/custom/Aanpak/StepSection";
 import {getAanpakPageData} from "@/data/loaders";
+import {IntroImageSection} from "@/components/custom/Aanpak/IntroImageSection";
 
 function blockRenderer(block) {
     switch (block.__component) {
-        case "layout.hero-section":
-            return <HeroSection key={block.id} data={block}/>;
         case "layout.intro-section":
             return <IntroSection key={block.id} data={block}/>;
+        case "layout.intro-image-section":
+            return <IntroImageSection key={block.id} data={block}/>;
         case "layout.stappen-section":
             return <StepSection key={block.id} data={block}/>;
         default:
-            return null;
+        return null;
     }
 }
 

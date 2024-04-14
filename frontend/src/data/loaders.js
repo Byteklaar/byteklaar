@@ -90,9 +90,22 @@ export async function getAanpakPageData() {
         populate: {
             blocks: {
                 populate: {
-                    tekst_2: "",
-                    image: {
-                        fields: ["url"],
+                    titel: "",
+                    beschrijving: "",
+                    afbeelding: {
+                        fields: ["url", "alternativeText"],
+                    },
+                    tekst: "",
+                    stap: {
+                        fields: ['text', 'beschrijving'],
+                        populate: {
+                            afbeelding: {
+                                fields: ["url", "alternativeText"],
+                            }
+                        }
+                    },
+                    link: {
+                        fields: ['text', 'url', 'isExternal'],
                     }
                 },
             },

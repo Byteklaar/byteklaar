@@ -794,16 +794,18 @@ export interface ApiAanpakAanpak extends Schema.SingleType {
     singularName: 'aanpak';
     pluralName: 'aanpaks';
     displayName: 'Aanpak';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    image: Attribute.Media;
-    tekst_2: Attribute.Text;
-    stappen: Attribute.Component<'layout.stappen-section'>;
-    intro: Attribute.Component<'layout.intro-section'>;
+    blocks: Attribute.DynamicZone<
+      [
+        'layout.intro-section',
+        'layout.intro-image-section',
+        'layout.stappen-section'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

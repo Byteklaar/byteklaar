@@ -80,6 +80,18 @@ export interface LayoutHeroSection extends Schema.Component {
   };
 }
 
+export interface LayoutIntroImageSection extends Schema.Component {
+  collectionName: 'components_layout_intro_image_sections';
+  info: {
+    displayName: 'Image section';
+    description: '';
+  };
+  attributes: {
+    afbeelding: Attribute.Media;
+    tekst: Attribute.Text;
+  };
+}
+
 export interface LayoutIntroSection extends Schema.Component {
   collectionName: 'components_components_intro_sections';
   info: {
@@ -115,6 +127,7 @@ declare module '@strapi/types' {
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'layout.hero-section': LayoutHeroSection;
+      'layout.intro-image-section': LayoutIntroImageSection;
       'layout.intro-section': LayoutIntroSection;
       'layout.stappen-section': LayoutStappenSection;
     }
