@@ -68,7 +68,7 @@ export async function Footer({data}) {
         <div>
             <div className="py-8 px-16 bg-byte-beige flex items-center justify-between">
                 <div className="container flex justify-between">
-                    <div className="">
+                    <div>
                         {menuLink.map((menu) => (
                             <Link className="text-black me-8 text-md" href={menu.url} key={menu.id}>{menu.text}</Link>
                         ))}

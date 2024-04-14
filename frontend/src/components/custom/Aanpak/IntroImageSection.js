@@ -1,4 +1,3 @@
-import BlockRendererClient from "@/app/BlockRendererClient";
 import {StrapiImage} from "@/components/custom/StrapiImage";
 
 const IntroImageSectionProps = {

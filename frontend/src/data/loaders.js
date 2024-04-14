@@ -114,3 +114,18 @@ export async function getAanpakPageData() {
 
     return await fetchData(url.href);
 }
+
+export async function getProjectenData() {
+    const url = new URL('/api/projecten', baseUrl);
+
+    url.search = qs.stringify({
+        populate: [
+            "titel",
+            "beschrijving",
+            "gallerij",
+            "extra_beschrijving"
+        ]
+    });
+
+    return await fetchData(url.href);
+}
