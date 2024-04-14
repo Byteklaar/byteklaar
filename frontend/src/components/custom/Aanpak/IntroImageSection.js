@@ -12,13 +12,12 @@ export function IntroImageSection({data}) {
     const {afbeelding, tekst} = data;
     return (
         <div className="flex row">
-            <div className="basis-3/5">
-                <StrapiImage
-                    src={afbeelding.url}
-                    width={1000}
-                    height={1000}
-                />
-            </div>
+            <StrapiImage
+                className="object-cover basis-3/5"
+                src={afbeelding.url}
+                width={1000}
+                height={1000}
+            />
             <div className="basis-2/5 py-20 text-xl px-16">
                 <p>{tekst}</p>
             </div>
