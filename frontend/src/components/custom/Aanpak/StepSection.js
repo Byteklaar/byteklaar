@@ -26,7 +26,7 @@ function showLink(link) {
 }
 
 export function StepSection({data}) {
-    const {titel, beschrijving, stap, link, afbeelding} = data;
+    const {titel, beschrijving, stap, link} = data;
     // TODO stap scroll animatie
     return (
         <div className="container">
@@ -35,7 +35,7 @@ export function StepSection({data}) {
                 <div className="grid grid-cols-6 items-center content-center text-center mt-16 w-full">
                     {stap.map((stap, index) =>
                         <div key={stap.id}>
-                            <BigStep counter={index} text={stap.text}/>
+                            <BigStep counter={index} titel={stap.text} beschrijving={stap.beschrijving} afbeelding={stap.afbeelding}/>
                         </div>
                     )}
                 </div>
