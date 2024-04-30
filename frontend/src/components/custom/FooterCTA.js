@@ -17,7 +17,7 @@ export async function FooterCTA({data}) {
     // TODO animatie 3d object
     return (
         <div className="flex bg-byte-blue z-10">
-            <div className="flex-1 bg-byte-terra z-0 px-16 py-4">
+            <div className="flex-1 bg-byte-terra z-0 px-16 py-4 max-w-xl">
                 <StrapiImage className="relative object-cover h-full w-full ease-in-out duration-300 hover:rotate-180 z-0"
                              src={image.url}
                              width={100}
