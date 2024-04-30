@@ -120,7 +120,10 @@ export async function getProjectenData() {
 
     url.search = qs.stringify({
         populate: [
+            "uitgelichteAfbeelding",
             "titel",
+            "slug",
+            "excerpt",
             "beschrijving",
             "gallerij",
             "extra_beschrijving"

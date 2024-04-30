@@ -939,6 +939,9 @@ export interface ApiProjectProject extends Schema.CollectionType {
     beschrijving: Attribute.Text;
     gallerij: Attribute.Media;
     extra_beschrijving: Attribute.Text;
+    uitgelichteAfbeelding: Attribute.Media;
+    excerpt: Attribute.String;
+    slug: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

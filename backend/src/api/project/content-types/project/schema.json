@@ -31,6 +31,23 @@
     },
     "extra_beschrijving": {
       "type": "text"
+    },
+    "uitgelichteAfbeelding": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }
