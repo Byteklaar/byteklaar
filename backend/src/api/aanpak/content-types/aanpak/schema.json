@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "aanpaks",
+  "info": {
+    "singularName": "aanpak",
+    "pluralName": "aanpaks",
+    "displayName": "Aanpak"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "layout.intro-section",
+        "layout.intro-image-section",
+        "layout.stappen-section"
+      ]
+    }
+  }
+}
