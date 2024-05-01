@@ -1,9 +1,32 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ComponentsFieldDropdown extends Schema.Component {
+  collectionName: 'components_components_field_dropdowns';
+  info: {
+    displayName: 'fieldDropdown';
+  };
+  attributes: {
+    titel: Attribute.String;
+  };
+}
+
+export interface ComponentsField extends Schema.Component {
+  collectionName: 'components_components_fields';
+  info: {
+    displayName: 'field';
+  };
+  attributes: {
+    Naam: Attribute.String;
+    Type: Attribute.String;
+    Verplicht: Attribute.Boolean;
+  };
+}
+
 export interface ComponentsLink extends Schema.Component {
   collectionName: 'components_components_links';
   info: {
     displayName: 'link';
+    description: '';
   };
   attributes: {
     url: Attribute.String;
@@ -53,6 +76,19 @@ export interface LayoutFooter extends Schema.Component {
     algemeneVoorwaarden: Attribute.Component<'components.link'>;
     privacyBeleid: Attribute.Component<'components.link'>;
     adres: Attribute.Component<'components.link'>;
+  };
+}
+
+export interface LayoutForm extends Schema.Component {
+  collectionName: 'components_layout_forms';
+  info: {
+    displayName: 'Form';
+    description: '';
+  };
+  attributes: {
+    Titel: Attribute.String;
+    field: Attribute.Component<'components.field', true>;
+    dropdown: Attribute.Component<'components.field-dropdown', true>;
   };
 }
 
@@ -121,10 +157,13 @@ export interface LayoutStappenSection extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'components.field-dropdown': ComponentsFieldDropdown;
+      'components.field': ComponentsField;
       'components.link': ComponentsLink;
       'components.stappen': ComponentsStappen;
       'layout.footer-cta': LayoutFooterCta;
       'layout.footer': LayoutFooter;
+      'layout.form': LayoutForm;
       'layout.header': LayoutHeader;
       'layout.hero-section': LayoutHeroSection;
       'layout.intro-image-section': LayoutIntroImageSection;

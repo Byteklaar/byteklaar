@@ -92,7 +92,7 @@ export async function Footer({data}) {
                         </div>
                         <div className="flex ms-16">
                             {socialLink.map((menu) => (
-                                <Link target="_blank" className="text-black me-1" href={menu.url}
+                                <Link target="_blank" className="text-black me-2" href={menu.url}
                                       key={menu.id}>{getIcon(menu.text)}</Link>
                             ))}
                         </div>

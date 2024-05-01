@@ -132,3 +132,21 @@ export async function getProjectenData() {
 
     return await fetchData(url.href);
 }
+
+export async function getContactData() {
+    const url = new URL('/api/contact', baseUrl);
+
+    url.search = qs.stringify({
+        populate: [
+            "titel",
+            "mail",
+            "telefoon",
+            "adresStraat",
+            "adresPostcode",
+            "openingsuren",
+            "socialLinks",
+        ],
+    });
+
+    return await fetchData(url.href);
+}

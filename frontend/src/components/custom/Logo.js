@@ -13,7 +13,7 @@ export function Logo({
     return (
         <Link href="/">
             <StrapiImage
-                alt="Background"
+                alt="Logo Byteklaar"
                 height={100}
                 src={url}
                 width={250}
