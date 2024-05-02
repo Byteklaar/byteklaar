@@ -869,7 +869,7 @@ export interface ApiContactContact extends Schema.SingleType {
     socialLinks: Attribute.Component<'components.link', true>;
     adresStraat: Attribute.String;
     adresPostcode: Attribute.String;
-    blocks: Attribute.DynamicZone<['layout.form']>;
+    formulier: Attribute.Component<'layout.form'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

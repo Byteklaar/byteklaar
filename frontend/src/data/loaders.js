@@ -145,6 +145,11 @@ export async function getContactData() {
             "adresPostcode",
             "openingsuren",
             "socialLinks",
+            "formulier.titel",
+            "formulier.field",
+            "formulier.dropdown",
+            "formulier.dropdownVerplicht",
+            "formulier.dropdownDefault"
         ],
     });
 

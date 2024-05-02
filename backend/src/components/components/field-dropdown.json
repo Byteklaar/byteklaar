@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_components_field_dropdowns",
+  "info": {
+    "displayName": "fieldDropdown",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titel": {
+      "type": "string"
+    }
+  }
+}

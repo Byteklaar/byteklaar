@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titel": {
+      "type": "blocks"
+    },
+    "mail": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    },
+    "telefoon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    },
+    "openingsuren": {
+      "type": "string"
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link"
+    },
+    "adresStraat": {
+      "type": "string"
+    },
+    "adresPostcode": {
+      "type": "string"
+    },
+    "formulier": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.form"
+    }
+  }
+}

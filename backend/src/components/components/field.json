@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_fields",
+  "info": {
+    "displayName": "field",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "naam": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "verplicht": {
+      "type": "boolean"
+    }
+  }
+}

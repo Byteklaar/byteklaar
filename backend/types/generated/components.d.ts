@@ -4,6 +4,7 @@ export interface ComponentsFieldDropdown extends Schema.Component {
   collectionName: 'components_components_field_dropdowns';
   info: {
     displayName: 'fieldDropdown';
+    description: '';
   };
   attributes: {
     titel: Attribute.String;
@@ -14,11 +15,12 @@ export interface ComponentsField extends Schema.Component {
   collectionName: 'components_components_fields';
   info: {
     displayName: 'field';
+    description: '';
   };
   attributes: {
-    Naam: Attribute.String;
-    Type: Attribute.String;
-    Verplicht: Attribute.Boolean;
+    naam: Attribute.String;
+    type: Attribute.String;
+    verplicht: Attribute.Boolean;
   };
 }
 
@@ -86,9 +88,11 @@ export interface LayoutForm extends Schema.Component {
     description: '';
   };
   attributes: {
-    Titel: Attribute.String;
+    titel: Attribute.String;
     field: Attribute.Component<'components.field', true>;
     dropdown: Attribute.Component<'components.field-dropdown', true>;
+    dropdownVerplicht: Attribute.Boolean;
+    dropdownDefault: Attribute.String;
   };
 }
 
