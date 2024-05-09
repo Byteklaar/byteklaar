@@ -18,7 +18,7 @@ export default async function RootLayout({children}) {
 
     return (
         <html lang="en">
-        <body className="font-display">
+        <body className="font-display overflow-x-hidden">
         <Header data={globalData.header}/>
         <div>{children}</div>
         <FooterCTA data={globalData.footerCta}/>

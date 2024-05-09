@@ -23,7 +23,7 @@ export default async function Page() {
         <div className="bg-byte-blue p-16">
             <div className="container">
                 <div className="text-6xl text-white mb-16">
-                    <BlockRendererClient content={titel}/>
+                    <h1 className="text-6xl w-5/12">{titel}</h1>
                 </div>
                 <Link className="text-white block" href={mail.url}>{mail.text}</Link>
                 <Link className="text-white block mb-4" href={telefoon.url}>{telefoon.text}</Link>

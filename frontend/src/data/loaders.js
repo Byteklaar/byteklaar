@@ -133,6 +133,22 @@ export async function getProjectenData() {
     return await fetchData(url.href);
 }
 
+export async function getProjectSingleData(slug) {
+    const url = new URL('/api/projecten/' + slug, baseUrl);
+    url.search = qs.stringify({
+        populate: [
+            "titel",
+            "slug",
+            "excerpt",
+            "beschrijving",
+            "gallerij",
+            "extra_beschrijving",
+            "uitgelichteAfbeelding",
+        ]
+    });
+    return await fetchData(url.href);
+}
+
 export async function getContactData() {
     const url = new URL('/api/contact', baseUrl);
 

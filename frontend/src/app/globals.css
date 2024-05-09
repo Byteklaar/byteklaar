@@ -12,6 +12,24 @@
     }
 }
 
-.contact .footerCTA{
+.contact .footerCTA {
     display: none;
+}
+
+.project-gallerij .achtergrond::before {
+    content: '';
+    position: absolute;
+    background-image: url('./assets/images/project_background.png');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.project-gallerij .achtergrond:nth-child(even)::before {
+    transform: scaleX(-1);
+}
+
+.step {
+    transform: translateX(-100vw);
 }

@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "titel": {
-      "type": "blocks"
-    },
     "mail": {
       "type": "component",
       "repeatable": false,
@@ -43,6 +40,9 @@
       "type": "component",
       "repeatable": false,
       "component": "layout.form"
+    },
+    "titel": {
+      "type": "string"
     }
   }
 }

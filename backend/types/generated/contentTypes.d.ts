@@ -862,7 +862,6 @@ export interface ApiContactContact extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    titel: Attribute.Blocks;
     mail: Attribute.Component<'components.link'>;
     telefoon: Attribute.Component<'components.link'>;
     openingsuren: Attribute.String;
@@ -870,6 +869,7 @@ export interface ApiContactContact extends Schema.SingleType {
     adresStraat: Attribute.String;
     adresPostcode: Attribute.String;
     formulier: Attribute.Component<'layout.form'>;
+    titel: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
