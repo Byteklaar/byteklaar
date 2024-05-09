@@ -32,7 +32,7 @@ export function StepSection({data}) {
         <div className="container">
             <div className="px-16 my-16">
                 <h3 className="text-7xl w-6/12">{titel}</h3>
-                <div className="grid grid-cols-6 items-center content-center text-center mt-16 w-full">
+                <div className="flex flex-col items-center content-center text-center mt-16 w-full">
                     {stap.map((stap, index) =>
                         <div key={stap.id}>
                             <BigStep counter={index} titel={stap.text} beschrijving={stap.beschrijving} afbeelding={stap.afbeelding}/>
