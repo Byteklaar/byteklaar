@@ -29,7 +29,3 @@
 .project-gallerij .achtergrond:nth-child(even)::before {
     transform: scaleX(-1);
 }
-
-.step {
-    transform: translateX(-100vw);
-}
