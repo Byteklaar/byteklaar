@@ -22,7 +22,6 @@ export function StepSection({data}) {
                 start: '-350% center',
                 end: '150% center',
                 scrub: true,
-                markers: true
             }
         })
 
