@@ -1,28 +1,22 @@
+"use client";
 import Link from "next/link";
 import {StrapiImage} from "@/components/custom/StrapiImage";
-import {CircleButton} from "@/components/ui/CircleButton";
+import {CircleButton} from "@/components/ui/CircleButton"
+import {gsap} from "gsap";
+import {useGSAP} from '@gsap/react';
 
-const Image = {
-    id: 0,
-    url: "",
-    alternativeText: ""
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(useGSAP);
 }
-
-const LinkButton = {
-    id: 0,
-    url: "",
-    text: ""
-}
-
-const HeroSectionProps = {
-    id: 0,
-    __component: "",
-    Image: {},
-    Link: {}
-};
 
 export function HeroSection({data}) {
-    const { image, link } = data;
+    const {image, link} = data;
+
+    useGSAP(() => {
+
+    });
+
+
     return (
         <header className="relative h-[800px] overflow-hidden">
             <StrapiImage
@@ -32,7 +26,8 @@ export function HeroSection({data}) {
                 src={image.url}
                 width={2560}
             />
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white bg-black bg-opacity-20">
+            <div
+                className="box relative z-10 flex flex-col items-center justify-center h-full text-center text-white bg-black bg-opacity-20">
                 <CircleButton
                     link={link.url}
                     titel={link.text}
