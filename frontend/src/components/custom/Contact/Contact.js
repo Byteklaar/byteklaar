@@ -1,11 +1,18 @@
+'use client';
+
 export function Contact({data}) {
-
     function handleSubmit() {
-        const formBody = `firstName=${encodeURIComponent(Voornaam)}&email=${encodeURIComponent(E-mail)}`;
+        let voornaam = document.getElementsByName('Voornaam');
+        let naam = document.getElementsByName('Naam');
+        let email = document.getElementsByName('E-mail');
+        let bedrijf = document.getElementsByName('Bedrijf');
+        let telefoon = document.getElementsByName('Telefoon');
+        let fase = document.getElementsByName('Fase');
+        let vraag = document.getElementsByName('Vraag');
+        let userGroup = document.getElementsByName('userGroup');
 
-        // const formBody = `firstName=${encodeURIComponent(Naam)}&lastName=${encodeURIComponent(Voornaam)}&userGroup=${encodeURIComponent(userGroup)}&Bedrijf=${encodeURIComponent(Bedrijf)}&Fase=${encodeURIComponent(Fase)}&Telefoon=${encodeURIComponent(Telefoon)}&email=${encodeURIComponent(E-mail)}&Vraag=${encodeURIComponent(Vraag)}`;
+        const formBody = `firstName=${encodeURIComponent(voornaam)}&lastName=${encodeURIComponent(naam)}&userGroup=${encodeURIComponent(userGroup)}&Bedrijf=${encodeURIComponent(bedrijf)}&Fase=${encodeURIComponent(fase)}&Telefoon=${encodeURIComponent(telefoon)}&email=${encodeURIComponent(email)}&Vraag=${encodeURIComponent(vraag)}`;
 
-        // Change this URL to your own endpoint URL
         fetch("https://app.loops.so/api/newsletter-form/clw3p9dyl039ts88steniolch", {
             method: "POST",
             body: formBody,
@@ -16,7 +23,7 @@ export function Contact({data}) {
     }
 
     return (
-        <form method="post" action="https://app.loops.so/api/newsletter-form/clw3p9dyl039ts88steniolch"
+        <form method="post" onSubmit={handleSubmit()}
               className="flex flex-col lg:grid lg:grid-flow-row lg:grid-cols-2 gap-x-8 gap-y-3">
             <input type="hidden" name="userGroup" value="Website contactForm"/>
             {data.field.map((field) => (
@@ -48,10 +55,11 @@ export function Contact({data}) {
                     <option key={field.id} value={field.titel}>{field.titel}</option>
                 ))}
             </select>
-            <input
+            <button
                 className="col-start-2 col-end-2 hover:bg-white hover:text-byte-blue cursor-pointer ease-in-out duration-150 p-2 border-2 border-white text-white rounded-full block"
                 type="submit"
-                value="Versturen"/>
+            >Versturen
+            </button>
         </form>
     )
 }
