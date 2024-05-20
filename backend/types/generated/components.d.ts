@@ -120,6 +120,17 @@ export interface LayoutHeroSection extends Schema.Component {
   };
 }
 
+export interface LayoutHomeIntro extends Schema.Component {
+  collectionName: 'components_layout_home_intros';
+  info: {
+    displayName: 'Home Intro';
+    description: '';
+  };
+  attributes: {
+    LogoAnimation: Attribute.Media;
+  };
+}
+
 export interface LayoutIntroImageSection extends Schema.Component {
   collectionName: 'components_layout_intro_image_sections';
   info: {
@@ -170,6 +181,7 @@ declare module '@strapi/types' {
       'layout.form': LayoutForm;
       'layout.header': LayoutHeader;
       'layout.hero-section': LayoutHeroSection;
+      'layout.home-intro': LayoutHomeIntro;
       'layout.intro-image-section': LayoutIntroImageSection;
       'layout.intro-section': LayoutIntroSection;
       'layout.stappen-section': LayoutStappenSection;

@@ -30,6 +30,9 @@ export async function getHomePageData() {
         populate: {
             blocks: {
                 populate: {
+                    LogoAnimation: {
+                        fields: ["url", "alternativeText"],
+                    },
                     image: {
                         fields: ["url", "alternativeText"],
                     },

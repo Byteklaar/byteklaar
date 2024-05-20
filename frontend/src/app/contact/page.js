@@ -20,18 +20,20 @@ function getIcon(name) {
 export default async function Page() {
     const contactData = await getContactData();
     const {titel, adresStraat, adresPostcode, mail, telefoon, openingsuren, socialLinks, formulier} = contactData;
-
+    // TODO create SMTP connection
     return (
-        <div className="bg-byte-blue p-16">
+        <div className="bg-byte-blue p-8 lg:p-16">
             <div className="container">
                 <div className="text-6xl text-white mb-16">
-                    <h1 className="text-6xl w-5/12">{titel}</h1>
+                    <h1 className="text-6xl w-full md:w-5/12">{titel}</h1>
                 </div>
-                <Link className="text-white block" href={mail.url}>{mail.text}</Link>
-                <Link className="text-white block mb-4" href={telefoon.url}>{telefoon.text}</Link>
-                <Link className="text-white block mb-4" href="https://maps.app.goo.gl/eFsqRswPtnVLqjWA9"
-                      target="_blank">{adresStraat} <br/>{adresPostcode}</Link>
-                <p className="text-white block mb-16">{openingsuren}</p>
+                <div className="inline-flex flex-col">
+                    <Link className="text-white" href={mail.url}>{mail.text}</Link>
+                    <Link className="text-white mb-4" href={telefoon.url}>{telefoon.text}</Link>
+                    <Link className="text-white mb-4" href="https://maps.app.goo.gl/eFsqRswPtnVLqjWA9"
+                          target="_blank">{adresStraat} <br/>{adresPostcode}</Link>
+                    <p className="text-white block mb-16">{openingsuren}</p>
+                </div>
                 <div className="flex">
                     {socialLinks.map((socialLink) => (
                         <Link target="_blank" className="text-black me-2" href={socialLink.url}
@@ -40,7 +42,6 @@ export default async function Page() {
                 </div>
                 <div className="block mt-64">
                     <h2 className="text-5xl text-white mb-16">{formulier.titel}</h2>
-                    //TODO create SMTP connection
                     <Contact data={formulier}/>
                 </div>
             </div>

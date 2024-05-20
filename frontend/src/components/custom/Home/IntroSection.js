@@ -1,12 +1,5 @@
 import BlockRendererClient from "@/app/BlockRendererClient";
 
-const IntroSectionProps = {
-    id: 0,
-    __component: "",
-    titel: "",
-    beschrijving: ""
-};
-
 export function IntroSection({data}) {
     const {titel, beschrijving} = data;
     return (

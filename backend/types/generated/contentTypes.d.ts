@@ -935,13 +935,13 @@ export interface ApiHomepaginaHomepagina extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    header_afbeelding: Attribute.Media;
-    titel: Attribute.String;
-    titel_beschrijving: Attribute.Text;
-    banner_1: Attribute.String;
-    banner_2: Attribute.String;
     blocks: Attribute.DynamicZone<
-      ['layout.hero-section', 'layout.intro-section', 'layout.stappen-section']
+      [
+        'layout.hero-section',
+        'layout.intro-section',
+        'layout.stappen-section',
+        'layout.home-intro'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

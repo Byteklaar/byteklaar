@@ -3,7 +3,7 @@ import {StrapiImage} from "@/components/custom/StrapiImage";
 
 export function ProjectenGallerij({data}) {
     return (
-        <div className="container grid gap-4 grid-rows-2 grid-cols-2 p-8">
+        <div className="container grid gap-4 grid-rows-1 grid-cols-1 lg:grid-rows-2 lg:grid-cols-2 p-8">
             {data.map((project) => (
                 <Link key={project.id} href={`/projecten/${project.id}`} className="relative group ease-in-out">
                     <StrapiImage

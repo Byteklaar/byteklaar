@@ -1,10 +1,13 @@
 import {HeroSection} from "@/components/custom/Home/HeroSection";
 import {IntroSection} from "@/components/custom/Home/IntroSection";
 import {StepSection} from "@/components/custom/Home/StepSection";
+import {HomeIntro} from "@/components/custom/Home/HomeIntro";
 import {getHomePageData} from "@/data/loaders";
 
 function blockRenderer(block) {
     switch (block.__component) {
+        case "layout.home-intro":
+            return <HomeIntro key={block.id} data={block}/>;
         case "layout.hero-section":
             return <HeroSection key={block.id} data={block}/>;
         case "layout.intro-section":

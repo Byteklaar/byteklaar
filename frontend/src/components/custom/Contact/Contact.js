@@ -1,35 +1,7 @@
 export function Contact({data}) {
 
-    const nodemailer = require("nodemailer");
-
-    const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: true,
-        auth: {
-            user: "vd27363",
-            pass: "WW8JR9jg6utFJW0qniNyA6QiP7",
-        },
-    });
-
-// async..await is not allowed in global scope, must use a wrapper
-    async function main() {
-        // send mail with defined transport object
-        const info = await transporter.sendMail({
-            from: '"Byteklaar" <info@byteklaar.be>', // sender address
-            to: "", // list of receivers
-            subject: "Nieuwe inzendig vanaf de website", // Subject line
-            text: "Hello world?", // plain text body
-        });
-
-        console.log("Message sent: %s", info.messageId);
-        // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
-    }
-
-    main().catch(console.error);
-
     return (
-        <form action="" className="grid grid-flow-row grid-cols-2 gap-x-8 gap-y-3">
+        <form action="" className="flex flex-col lg:grid lg:grid-flow-row lg:grid-cols-2 gap-x-8 gap-y-3">
             {data.field.map((field) => (
                 field.type === "textarea" ? (
                     <textarea

@@ -12,35 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "header_afbeelding": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "titel": {
-      "type": "string"
-    },
-    "titel_beschrijving": {
-      "type": "text"
-    },
-    "banner_1": {
-      "type": "string"
-    },
-    "banner_2": {
-      "type": "string"
-    },
     "blocks": {
       "type": "dynamiczone",
       "components": [
         "layout.hero-section",
         "layout.intro-section",
-        "layout.stappen-section"
+        "layout.stappen-section",
+        "layout.home-intro"
       ]
     }
   }
