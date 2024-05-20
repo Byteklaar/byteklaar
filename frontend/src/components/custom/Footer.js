@@ -18,6 +18,7 @@ function getIcon(name) {
 
 export async function Footer({data}) {
     const {menuLink, adres, mail, telefoon, algemeneVoorwaarden, privacyBeleid, socialLink} = data;
+    // TODO nieuwsbrief sign up
     return (
         <div>
             <div className="pt-8 py-4 px-8 lg:py-8 lg:px-16 bg-byte-beige flex items-center justify-between">
