@@ -12,10 +12,11 @@ export function HomeIntro({data}) {
 
     useGSAP(() => {
         gsap.to('.strapiAnimation', {
-            delay: 3,
-            y: -2000,
+            delay: 2.55,
+            y: -5000,
             opacity: 1,
-            duration: 1.25
+            duration: 1.25,
+            ease: 'power3.in'
         })
     });
     return (
