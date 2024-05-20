@@ -11,25 +11,24 @@ export function getStrapiMedia(url) {
     return `${getStrapiURL()}${url}`;
 }
 
-export function StrapiImage({
+export function StrapiVideo({
                                 src,
-                                alt,
                                 height,
                                 width,
                                 className,
+                                controls,
+                                autoplay,
+                                muted
                             }) {
     if (!src) return null;
-    const imageUrl = getStrapiMedia(src);
-    const imageFallback = `https://placehold.co/${width}x${height}`;
+    const videoUrl = getStrapiMedia(src);
+    const videoFallback = `https://placehold.co/${width}x${height}`;
 
     return (
-        <Image
-            src={imageUrl ?? imageFallback}
-            alt={alt}
-            height={height}
-            width={width}
-            className={className}
-        />
+        <video width={width} height={height} className={className} controls={controls} autoPlay={autoplay} muted={muted}>
+            <source src={videoUrl} type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video>
     );
 
 }
