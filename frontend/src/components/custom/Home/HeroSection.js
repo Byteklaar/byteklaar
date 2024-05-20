@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import {StrapiImage} from "@/components/custom/StrapiImage";
 import {CircleButton} from "@/components/ui/CircleButton"
 import {gsap} from "gsap";
