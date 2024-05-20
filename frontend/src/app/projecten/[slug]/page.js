@@ -30,7 +30,7 @@ export default async function Page({params}) {
                     <p className="w-4/12">{projectData.extra_beschrijving}</p>
                 </div>
                 <div className="flex justify-end w-full my-12">
-                    <Link className="w-4/12 text-4xl" href="/#top">Terug naar boven</Link>
+                    <Link className="w-4/12 text-4xl" href="#top">Terug naar boven</Link>
                 </div>
             </div>
         </div>

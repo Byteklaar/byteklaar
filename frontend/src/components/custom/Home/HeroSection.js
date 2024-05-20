@@ -12,7 +12,15 @@ export function HeroSection({data}) {
     const {image, link} = data;
 
     useGSAP(() => {
+        gsap.set(".follower", {xPercent: -70, yPercent: -100});
 
+        let xTo = gsap.quickTo(".follower", "x", {duration: 0.6, ease: "power3"}),
+            yTo = gsap.quickTo(".follower", "y", {duration: 0.6, ease: "power3"});
+
+        window.addEventListener("mousemove", e => {
+            xTo(e.clientX);
+            yTo(e.clientY);
+        });
     });
 
 
