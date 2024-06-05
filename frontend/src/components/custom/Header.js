@@ -24,7 +24,7 @@ export function Header({data}) {
                 <div className="logo">
                     <Logo url={logoImage.url}/>
                 </div>
-                <div className="mt-8">
+                <div className="mt-8 md:mt-0">
                     <div className="hidden md:block">
                         {menuLink.map((menu) => (
                             <Link className="text-white me-16 text-xl" href={menu.url} key={menu.id}>{menu.text}</Link>

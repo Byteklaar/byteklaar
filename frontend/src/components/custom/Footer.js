@@ -1,7 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import {StrapiImage} from "@/components/custom/StrapiImage";
-import {LinkButton} from "@/components/ui/LinkButton";
 
 function getIcon(name) {
     switch (name) {
