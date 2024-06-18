@@ -1,5 +1,6 @@
 import {IntroSection} from "@/components/custom/Aanpak/IntroSection";
 import {StepSection} from "@/components/custom/Aanpak/StepSection";
+import {StepSectionAnimation} from "@/components/custom/Aanpak/StepSectionAnimation";
 import {getAanpakPageData} from "@/data/loaders";
 import {IntroImageSection} from "@/components/custom/Aanpak/IntroImageSection";
 
@@ -10,7 +11,8 @@ function blockRenderer(block) {
         case "layout.intro-image-section":
             return <IntroImageSection key={block.id} data={block}/>;
         case "layout.stappen-section":
-            return <StepSection key={block.id} data={block}/>;
+            // return <StepSection key={block.id} data={block}/>;
+            return <StepSectionAnimation key={block.id} data={block}/>;
         default:
         return null;
     }

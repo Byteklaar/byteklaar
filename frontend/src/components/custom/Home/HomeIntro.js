@@ -20,7 +20,7 @@ export function HomeIntro({data}) {
         })
     });
     return (
-        <div className="strapiAnimation absolute z-50 bg-byte-blue overflow-hidden">
+        <div className="strapiAnimation absolute top-0 z-50 bg-byte-blue overflow-hidden">
             <StrapiVideo
                 className="h-[100vh] py-32 w-screen"
                 controls={false}
