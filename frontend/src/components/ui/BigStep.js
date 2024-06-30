@@ -5,12 +5,7 @@ import Image from "next/image";
 export function BigStep({titel, counter, beschrijving, afbeelding}) {
     return (
         <div className="">
-            <StrapiImage
-                className="w-64 absolute top-0 right-0"
-                src={afbeelding.url}
-                height={1000}
-                width={1000}
-            />
+
             <div className="flex w-full row items-center my-12 relative">
                 {/*<div className="me-32 z-20 bg-white border border-black px-8 py-6 rounded-full">*/}
                 {/*    <p className="text-3xl">{counter + 1}</p>*/}

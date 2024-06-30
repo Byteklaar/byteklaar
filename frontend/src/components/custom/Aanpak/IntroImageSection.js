@@ -6,6 +6,7 @@ export function IntroImageSection({data}) {
         <div className="block lg:flex lg:row">
             <StrapiImage
                 className="object-cover basis-full lg:basis-3/5"
+                alt="Aanpak intro afbeelding"
                 src={afbeelding.url}
                 width={1000}
                 height={1000}
