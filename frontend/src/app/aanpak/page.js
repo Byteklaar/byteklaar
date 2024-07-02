@@ -1,5 +1,4 @@
 import {IntroSection} from "@/components/custom/Aanpak/IntroSection";
-import {StepSection} from "@/components/custom/Aanpak/StepSection";
 import {StepSectionAnimation} from "@/components/custom/Aanpak/StepSectionAnimation";
 import {getAanpakPageData} from "@/data/loaders";
 import {IntroImageSection} from "@/components/custom/Aanpak/IntroImageSection";
