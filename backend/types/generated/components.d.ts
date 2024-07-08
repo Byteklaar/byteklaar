@@ -46,7 +46,7 @@ export interface ComponentsStappen extends Schema.Component {
   };
   attributes: {
     text: Attribute.String;
-    afbeelding: Attribute.Media;
+    afbeelding: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     beschrijving: Attribute.Blocks;
   };
 }
@@ -58,7 +58,7 @@ export interface LayoutFooterCta extends Schema.Component {
     description: '';
   };
   attributes: {
-    image: Attribute.Media;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     titel: Attribute.String;
     link: Attribute.Component<'components.link'>;
   };
@@ -104,7 +104,7 @@ export interface LayoutHeader extends Schema.Component {
   };
   attributes: {
     menuLink: Attribute.Component<'components.link', true>;
-    logoImage: Attribute.Media;
+    logoImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -115,7 +115,7 @@ export interface LayoutHeroSection extends Schema.Component {
     description: '';
   };
   attributes: {
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     link: Attribute.Component<'components.link'>;
   };
 }
@@ -127,7 +127,7 @@ export interface LayoutHomeIntro extends Schema.Component {
     description: '';
   };
   attributes: {
-    LogoAnimation: Attribute.Media;
+    LogoAnimation: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -138,7 +138,7 @@ export interface LayoutIntroImageSection extends Schema.Component {
     description: '';
   };
   attributes: {
-    afbeelding: Attribute.Media;
+    afbeelding: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     tekst: Attribute.Text;
   };
 }

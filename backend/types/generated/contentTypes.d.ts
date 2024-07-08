@@ -839,7 +839,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     titel: Attribute.String;
     beschrijving: Attribute.Text;
     tekst: Attribute.Blocks;
-    afbeelding: Attribute.Media;
+    afbeelding: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -975,9 +975,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
   attributes: {
     titel: Attribute.String;
     beschrijving: Attribute.Text;
-    gallerij: Attribute.Media;
+    gallerij: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     extra_beschrijving: Attribute.Text;
-    uitgelichteAfbeelding: Attribute.Media;
+    uitgelichteAfbeelding: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     excerpt: Attribute.String;
     slug: Attribute.String;
     createdAt: Attribute.DateTime;
