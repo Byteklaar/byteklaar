@@ -1,8 +1,7 @@
 import {getContactData} from "@/data/loaders";
-import BlockRendererClient from "@/app/BlockRendererClient";
 import Link from "next/link";
 import Image from "next/image";
-import {Contact} from "@/components/custom/Contact/Contact";
+import {ContactForm} from "@/components/custom/Contact/ContactForm";
 
 function getIcon(name) {
     switch (name) {
@@ -17,7 +16,7 @@ function getIcon(name) {
     }
 }
 
-export default async function Page() {
+export default async function Contact() {
     const contactData = await getContactData();
     const {titel, adresStraat, adresPostcode, mail, telefoon, openingsuren, socialLinks, formulier} = contactData;
     // TODO create SMTP connection
@@ -42,7 +41,7 @@ export default async function Page() {
                 </div>
                 <div className="block mt-64">
                     <h2 className="text-5xl text-white mb-16">{formulier.titel}</h2>
-                    <Contact data={formulier}/>
+                    <ContactForm data={formulier}/>
                 </div>
             </div>
         </div>
