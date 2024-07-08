@@ -16,7 +16,7 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'committed-dogs-011f71267c.strapiapp.com',
                 port: '',
-                pathname: '/uploads/**/*',
+                pathname: '/',
             },
         ],
     },
