@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['committed-dogs-011f71267c.strapiapp.com'],
         remotePatterns: [
             {
                 protocol: "http",
@@ -12,6 +11,12 @@ const nextConfig = {
             {
                 protocol: "https",
                 hostname: "placehold.co",
+            },
+            {
+                protocol: 'https',
+                hostname: 'committed-dogs-011f71267c.strapiapp.com',
+                port: '',
+                pathname: '/uploads/**/*',
             },
         ],
     },
