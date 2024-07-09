@@ -1,37 +1,76 @@
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 
-export function ContactForm({ data }) {
+export function ContactForm({data}) {
     useEffect(() => {
-        // Any code here runs only on the client side
+
     }, []);
 
-    function handleSubmit(event) {
-        event.preventDefault();
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
 
-        let voornaam = document.getElementsByName('Voornaam')[0].value;
-        let naam = document.getElementsByName('Naam')[0].value;
-        let email = document.getElementsByName('E-mail')[0].value;
-        let bedrijf = document.getElementsByName('Bedrijf')[0].value;
-        let telefoon = document.getElementsByName('Telefoon')[0].value;
-        let fase = document.getElementsByName('Fase')[0].value;
-        let vraag = document.getElementsByName('Vraag')[0].value;
-        let userGroup = document.getElementsByName('userGroup')[0].value;
+    const handleInput = (e) => {
+        const fieldName = e.target.name;
+        const fieldValue = e.target.value;
 
-        const formBody = `firstName=${encodeURIComponent(voornaam)}&lastName=${encodeURIComponent(naam)}&userGroup=${encodeURIComponent(userGroup)}&Bedrijf=${encodeURIComponent(bedrijf)}&Fase=${encodeURIComponent(fase)}&Telefoon=${encodeURIComponent(telefoon)}&email=${encodeURIComponent(email)}&Vraag=${encodeURIComponent(vraag)}`;
+        setFormData((prevState) => ({
+            ...prevState,
+            [fieldName]: fieldValue
+        }));
+    }
 
-        fetch("https://app.loops.so/api/newsletter-form/clw3p9dyl039ts88steniolch", {
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        const formURL = e.target.action
+        const data = new FormData()
+
+        // Turn our formData state into data we can use with a form submission
+        Object.entries(formData).forEach(([key, value]) => {
+            data.append(key, value);
+        })
+
+        fetch(formURL, {
             method: "POST",
-            body: formBody,
+            body: data,
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
+                'accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
-        });
+        }).then(() => {
+            setFormData({
+                name: "",
+                email: "",
+                message: ""
+            })
+        })
+
+        // let voornaam = document.getElementsByName('Voornaam')[0].value;
+        // let naam = document.getElementsByName('Naam')[0].value;
+        // let email = document.getElementsByName('E-mail')[0].value;
+        // let bedrijf = document.getElementsByName('Bedrijf')[0].value;
+        // let telefoon = document.getElementsByName('Telefoon')[0].value;
+        // let fase = document.getElementsByName('Fase')[0].value;
+        // let vraag = document.getElementsByName('Vraag')[0].value;
+        // let userGroup = document.getElementsByName('userGroup')[0].value;
+        //
+        // const formBody = `firstName=${encodeURIComponent(voornaam)}&lastName=${encodeURIComponent(naam)}&userGroup=${encodeURIComponent(userGroup)}&Bedrijf=${encodeURIComponent(bedrijf)}&Fase=${encodeURIComponent(fase)}&Telefoon=${encodeURIComponent(telefoon)}&email=${encodeURIComponent(email)}&Vraag=${encodeURIComponent(vraag)}`;
+        // fetch("https://app.loops.so/api/newsletter-form/clw3p9dyl039ts88steniolch", {
+        //     method: "POST",
+        //     body: formBody,
+        //     headers: {
+        //         "Content-Type": "application/x-www-form-urlencoded",
+        //     },
+        // });
     }
 
     return (
-        <form method="post" onSubmit={handleSubmit}
+        <form method="post" action="https://app.loops.so/api/newsletter-form/clw3p9dyl039ts88steniolch"
+              onSubmit={handleSubmit}
               className="flex flex-col lg:grid lg:grid-flow-row lg:grid-cols-2 gap-x-8 gap-y-3">
-            <input type="hidden" name="userGroup" value="Website contactForm" />
+            <input type="hidden" name="userGroup" value="Website contactForm"/>
             {data.field.map((field) => (
                 field.type === "textarea" ? (
                     <textarea
@@ -50,6 +89,7 @@ export function ContactForm({ data }) {
                         placeholder={field.naam}
                         required={field.verplicht}
                         name={field.naam}
+                        onChange={handleInput}
                     />
                 )
             ))}
