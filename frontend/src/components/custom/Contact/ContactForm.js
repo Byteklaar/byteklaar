@@ -1,5 +1,5 @@
 'use client';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 
 export function ContactForm({data}) {
     useEffect(() => {
