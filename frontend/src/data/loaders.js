@@ -174,3 +174,15 @@ export async function getContactData() {
 
     return await fetchData(url.href);
 }
+
+export async function getVoorwaardenData() {
+    const url = new URL('/api/algemene-voorwaarden', baseUrl);
+
+    url.search = qs.stringify({
+        populate: [
+            'algemeneVoorwaarden',
+        ],
+    });
+
+    return await fetchData(url.href);
+}

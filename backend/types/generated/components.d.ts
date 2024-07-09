@@ -169,6 +169,19 @@ export interface LayoutStappenSection extends Schema.Component {
   };
 }
 
+export interface LayoutTextPage extends Schema.Component {
+  collectionName: 'components_layout_text_pages';
+  info: {
+    displayName: 'Text page';
+    description: '';
+  };
+  attributes: {
+    titel: Attribute.String;
+    tekst: Attribute.Blocks;
+    download: Attribute.Component<'components.link'>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -185,6 +198,7 @@ declare module '@strapi/types' {
       'layout.intro-image-section': LayoutIntroImageSection;
       'layout.intro-section': LayoutIntroSection;
       'layout.stappen-section': LayoutStappenSection;
+      'layout.text-page': LayoutTextPage;
     }
   }
 }

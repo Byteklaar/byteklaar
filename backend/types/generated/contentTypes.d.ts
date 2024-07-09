@@ -824,6 +824,38 @@ export interface ApiAanpakAanpak extends Schema.SingleType {
   };
 }
 
+export interface ApiAlgemeneVoorwaardenAlgemeneVoorwaarden
+  extends Schema.SingleType {
+  collectionName: 'algemene_voorwaardens';
+  info: {
+    singularName: 'algemene-voorwaarden';
+    pluralName: 'algemene-voorwaardens';
+    displayName: 'Algemene voorwaarden';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    algemeneVoorwaarden: Attribute.Component<'layout.text-page'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::algemene-voorwaarden.algemene-voorwaarden',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::algemene-voorwaarden.algemene-voorwaarden',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Schema.CollectionType {
   collectionName: 'blogs';
   info: {
@@ -936,12 +968,7 @@ export interface ApiHomepaginaHomepagina extends Schema.SingleType {
   };
   attributes: {
     blocks: Attribute.DynamicZone<
-      [
-        'layout.hero-section',
-        'layout.intro-section',
-        'layout.stappen-section',
-        'layout.home-intro'
-      ]
+      ['layout.hero-section', 'layout.intro-section', 'layout.stappen-section']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1019,6 +1046,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::aanpak.aanpak': ApiAanpakAanpak;
+      'api::algemene-voorwaarden.algemene-voorwaarden': ApiAlgemeneVoorwaardenAlgemeneVoorwaarden;
       'api::blog.blog': ApiBlogBlog;
       'api::contact.contact': ApiContactContact;
       'api::global.global': ApiGlobalGlobal;
