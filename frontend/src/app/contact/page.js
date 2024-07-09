@@ -39,10 +39,10 @@ export default async function Contact() {
                               key={socialLink.id}>{getIcon(socialLink.text)}</Link>
                     ))}
                 </div>
-                <div className="block mt-64">
-                    <h2 className="text-5xl text-white mb-16">{formulier.titel}</h2>
-                    <ContactForm data={formulier}/>
-                </div>
+                {/*<div className="block mt-64">*/}
+                {/*    <h2 className="text-5xl text-white mb-16">{formulier.titel}</h2>*/}
+                {/*    <ContactForm data={formulier}/>*/}
+                {/*</div>*/}
             </div>
         </div>
     )

@@ -34,6 +34,13 @@ export function ContactForm({data}) {
             data.append(key, value);
         })
 
+        // const payload = {
+        //     "transactionalId": "clyel295f01tfeb98kapc2gk1",
+        //     "email": "info@byteklaar.be",
+        //     "addToAudience": true
+        // }
+
+// const formBody = `firstName=${encodeURIComponent(voornaam)}&lastName=${encodeURIComponent(naam)}&userGroup=${encodeURIComponent(userGroup)}&Bedrijf=${encodeURIComponent(bedrijf)}&Fase=${encodeURIComponent(fase)}&Telefoon=${encodeURIComponent(telefoon)}&email=${encodeURIComponent(email)}&Vraag=${encodeURIComponent(vraag)}`;
         fetch(formURL, {
             method: "POST",
             body: data,
@@ -59,7 +66,6 @@ export function ContactForm({data}) {
         // let vraag = document.getElementsByName('Vraag')[0].value;
         // let userGroup = document.getElementsByName('userGroup')[0].value;
         //
-        // const formBody = `firstName=${encodeURIComponent(voornaam)}&lastName=${encodeURIComponent(naam)}&userGroup=${encodeURIComponent(userGroup)}&Bedrijf=${encodeURIComponent(bedrijf)}&Fase=${encodeURIComponent(fase)}&Telefoon=${encodeURIComponent(telefoon)}&email=${encodeURIComponent(email)}&Vraag=${encodeURIComponent(vraag)}`;
         // fetch("https://app.loops.so/api/newsletter-form/clw3p9dyl039ts88steniolch", {
         //     method: "POST",
         //     body: formBody,
@@ -74,7 +80,7 @@ export function ContactForm({data}) {
             {formSuccess ?
                 <div>Formulier succesvol verzonden.</div>
                 :
-                <form method="post" action="https://app.loops.so/api/newsletter-form/clw3p9dyl039ts88steniolch"
+                <form method="post" action="https://app.loops.so/api/v1/transactional"
                       onSubmit={handleSubmit}
                       className="flex flex-col lg:grid lg:grid-flow-row lg:grid-cols-2 gap-x-8 gap-y-3">
                     <input type="hidden" name="userGroup" value="Website contactForm"/>
