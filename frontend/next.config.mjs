@@ -17,6 +17,11 @@ const nextConfig = {
                 hostname: 'committed-dogs-011f71267c.strapiapp.com',
                 port: ''
             },
+            {
+                protocol: 'https',
+                hostname: 'committed-dogs-011f71267c.media.strapiapp.com',
+                port: ''
+            }
         ],
     },
 };
