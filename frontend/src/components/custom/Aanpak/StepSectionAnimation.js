@@ -278,7 +278,7 @@ export function StepSectionAnimation({data}) {
                             </div>
                             <div>
                                 <p className="text-item__title text-2xl md:text-5xl">{stap.text}</p>
-                                <div className="text-item__text text-base md:text-lg">
+                                <div className="text-item__text text-base md:text-lg w-full md:w-4/12">
                                     <BlockRendererClient content={stap.beschrijving}/>
                                 </div>
                             </div>
