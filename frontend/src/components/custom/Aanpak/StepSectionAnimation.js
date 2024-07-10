@@ -267,16 +267,20 @@ export function StepSectionAnimation({data}) {
                 <div className="text-container">
                     {stap.map((stap, index) =>
                         <div key={stap.id} className={`relative text-item text-item--${index}`}>
-                            <StrapiImage
-                                className="w-4/12 absolute top-0 left-1/4"
-                                alt={stap.text}
-                                src={stap.afbeelding.url}
-                                height={3048}
-                                width={2024}
-                            />
-                            <p className="text-item__title">{stap.text}</p>
-                            <div className="text-item__text">
-                                <BlockRendererClient content={stap.beschrijving}/>
+                            <div>
+                                <StrapiImage
+                                    className="w-4/12 absolute top-0 left-1/4"
+                                    alt={stap.text}
+                                    src={stap.afbeelding.url}
+                                    height={3048}
+                                    width={2024}
+                                />
+                            </div>
+                            <div>
+                                <p className="text-item__title">{stap.text}</p>
+                                <div className="text-item__text">
+                                    <BlockRendererClient content={stap.beschrijving}/>
+                                </div>
                             </div>
                         </div>
                     )}

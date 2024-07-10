@@ -114,8 +114,8 @@ html {
 .text-item {
     height: 100vh;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-direction: row;
     gap: 40px;
 }
 
@@ -127,7 +127,7 @@ html {
 
 .text-item__text {
     font-size: 1em;
-    max-width: 350px;
+    max-width: 450px;
 }
 
 /* End Changes */
