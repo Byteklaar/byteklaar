@@ -1,66 +1,28 @@
 'use client';
-import {useEffect, useState} from 'react';
+import nodemailer from 'nodemailer';
 
 export function ContactForm({data}) {
-    const [formData, setFormData] = useState({name: '', email: '', message: ''});
-    const [responseMessage, setResponseMessage] = useState('');
-
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData({...formData, [name]: value});
-        console.log(formData);
-    };
-
-
-    function handleSubmit(e) {
-        var Brevo = require('@getbrevo/brevo');
-        var defaultClient = Brevo.ApiClient.instance;
-
-        // Configure API key authorization: api-key
-        var apiKey = defaultClient.authentications['api-key'];
-        apiKey.apiKey = process.env.BREVO_API_KEY;
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKey.apiKeyPrefix = 'Token';
-
-        var apiInstance = new Brevo.TransactionalEmailsApi();
-
-        var sendSmtpEmail = new Brevo.SendSmtpEmail({
-
-            "sender": {"email": "info@mails.byteklaar.be", "name": "Byteklaar"},
-            "subject": "Nieuwe inzending vanaf de website!",
-            "htmlContent": `<!DOCTYPE html><html><body><h1>Hey Bram</h1><p>Nieuwe inzending vanaf het contactformulier!</p><p>${formData}</p></body></html>`,
-            "messageVersions": [
-                //Definition for Message Version 1
-                {
-                    "to": [
-                        {
-                            "email": "info@byteklaar.be",
-                            "name": "Bram Dupont"
-                        }
-                    ]
-                },
-
-                // Definition for Message Version 2
-                // TODO Add email address to Loops.so
-                {
-                    "to": [
-                        {
-                            "email": formData['email'],
-                            "name": formData['name']
-                        },
-                    ],
-                    "htmlContent": "<!DOCTYPE html><html><body><h1>Beste</h1><p>We hebben je inzending goed ontvangen en nemen zo snel mogelijk contact met je op.</p></body></html>",
-                    "subject": "We hebben je inzending goed ontvangen!"
-                }
-            ]
-
-        }); // SendSmtpEmail | Values to send a transactional email
-
-        apiInstance.sendTransacEmail(sendSmtpEmail).then(function (data) {
-            console.log('API called successfully. Returned data: ' + data);
-        }, function (error) {
-            console.error(error);
+    async function handleSubmit() {
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            host: "smtp-relay.brevo.com",
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: process.env.BREVO_USER, // generated brevo user
+                pass: process.env.BREVO_PW, // generated brevo password
+            },
         });
+
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+            from: 'info@byteklaar.be', // sender address
+            to: "info@byteklaar", // list of receivers
+            subject: "Hello ✔", // Subject line
+            text: "Hello {{ contact.FIRSTNAME }} , This is an SMTP message with customizations", // plain text body
+        });
+
+        console.log("Message sent: %s", info.messageId);
     }
 
     return (
@@ -68,7 +30,7 @@ export function ContactForm({data}) {
             {formSuccess ?
                 <div>Formulier succesvol verzonden.</div>
                 :
-                <form method="post" action="https://app.loops.so/api/v1/transactional"
+                <form method="post"
                       onSubmit={handleSubmit}
                       className="flex flex-col lg:grid lg:grid-flow-row lg:grid-cols-2 gap-x-8 gap-y-3">
                     <input type="hidden" name="userGroup" value="Website contactForm"/>
