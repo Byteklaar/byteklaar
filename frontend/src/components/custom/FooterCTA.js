@@ -15,7 +15,7 @@ export async function FooterCTA({data}) {
                 />
             </div>
             <div className="basis-full lg:basis-3/5 flex flex-col justify-center px-8 py-16 lg:px-16 lg:py-32 z-20 relative">
-                <h2 className="text-white text-4xl lg:text-6xl w-full lg:w-5/6 mb-12 z-10">{titel}</h2>
+                <h2 className="text-white text-2xl lg:text-6xl w-full lg:w-5/6 mb-12 z-10">{titel}</h2>
                 <div>
                     <LinkButton link={link.url} tekst={link.text} textColor="byte-blue" bgColor="white"/>
                 </div>
