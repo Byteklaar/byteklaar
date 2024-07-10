@@ -17,7 +17,8 @@
       "components": [
         "layout.hero-section",
         "layout.intro-section",
-        "layout.stappen-section"
+        "layout.stappen-section",
+        "layout.home-intro"
       ]
     }
   }

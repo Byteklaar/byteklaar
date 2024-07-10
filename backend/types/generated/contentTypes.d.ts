@@ -968,7 +968,12 @@ export interface ApiHomepaginaHomepagina extends Schema.SingleType {
   };
   attributes: {
     blocks: Attribute.DynamicZone<
-      ['layout.hero-section', 'layout.intro-section', 'layout.stappen-section']
+      [
+        'layout.hero-section',
+        'layout.intro-section',
+        'layout.stappen-section',
+        'layout.home-intro'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
