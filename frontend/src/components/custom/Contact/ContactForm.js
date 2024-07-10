@@ -2,6 +2,7 @@
 import nodemailer from 'nodemailer';
 
 export function ContactForm({data}) {
+    const [formSuccess, setFormSuccess] = useState(false)
     async function handleSubmit() {
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
@@ -20,6 +21,8 @@ export function ContactForm({data}) {
             to: "info@byteklaar", // list of receivers
             subject: "Hello ✔", // Subject line
             text: "Hello {{ contact.FIRSTNAME }} , This is an SMTP message with customizations", // plain text body
+        }).then(() => {
+            setFormSuccess(true);
         });
 
         console.log("Message sent: %s", info.messageId);
