@@ -269,7 +269,7 @@ export function StepSectionAnimation({data}) {
                         <div key={stap.id} className={`relative text-item text-item--${index}`}>
                             <div class="flex justify-end">
                                 <StrapiImage
-                                    className="w-4/12 top-0 left-1/4"
+                                    className="w-5/12 top-0 left-1/4"
                                     alt={stap.text}
                                     src={stap.afbeelding.url}
                                     height={3048}
