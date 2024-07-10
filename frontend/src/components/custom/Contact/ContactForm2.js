@@ -1,67 +1,78 @@
 'use client';
 import {useEffect, useState} from 'react';
-import Brevo from "@getbrevo/brevo";
 
 export function ContactForm({data}) {
-    const [formData, setFormData] = useState({name: '', email: '', message: ''});
-    const [responseMessage, setResponseMessage] = useState('');
+    useEffect(() => {
 
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData({...formData, [name]: value});
-        console.log(formData);
-    };
+    }, []);
 
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
+    const [formSuccess, setFormSuccess] = useState(false)
+
+    const handleInput = (e) => {
+        const fieldName = e.target.name;
+        const fieldValue = e.target.value;
+
+        setFormData((prevState) => ({
+            ...prevState,
+            [fieldName]: fieldValue
+        }));
+    }
 
     function handleSubmit(e) {
-        var Brevo = require('@getbrevo/brevo');
-        var defaultClient = Brevo.ApiClient.instance;
+        e.preventDefault();
 
-        // Configure API key authorization: api-key
-        var apiKey = defaultClient.authentications['api-key'];
-        apiKey.apiKey = process.env.BREVO_API_KEY;
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //apiKey.apiKeyPrefix = 'Token';
+        const formURL = e.target.action
+        const data = new FormData()
 
-        var apiInstance = new Brevo.TransactionalEmailsApi();
+        // Turn our formData state into data we can use with a form submission
+        Object.entries(formData).forEach(([key, value]) => {
+            data.append(key, value);
+        })
 
-        var sendSmtpEmail = new Brevo.SendSmtpEmail({
+        // const payload = {
+        //     "transactionalId": "clyel295f01tfeb98kapc2gk1",
+        //     "email": "info@byteklaar.be",
+        //     "addToAudience": true
+        // }
 
-            "sender": {"email": "info@mails.byteklaar.be", "name": "Byteklaar"},
-            "subject": "Nieuwe inzending vanaf de website!",
-            "htmlContent": `<!DOCTYPE html><html><body><h1>Hey Bram</h1><p>Nieuwe inzending vanaf het contactformulier!</p><p>${formData}</p></body></html>`,
-            "messageVersions": [
-                //Definition for Message Version 1
-                {
-                    "to": [
-                        {
-                            "email": "info@byteklaar.be",
-                            "name": "Bram Dupont"
-                        }
-                    ]
-                },
+// const formBody = `firstName=${encodeURIComponent(voornaam)}&lastName=${encodeURIComponent(naam)}&userGroup=${encodeURIComponent(userGroup)}&Bedrijf=${encodeURIComponent(bedrijf)}&Fase=${encodeURIComponent(fase)}&Telefoon=${encodeURIComponent(telefoon)}&email=${encodeURIComponent(email)}&Vraag=${encodeURIComponent(vraag)}`;
+        fetch(formURL, {
+            method: "POST",
+            body: data,
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+        }).then(() => {
+            setFormData({
+                name: "",
+                email: "",
+                message: ""
+            })
+            setFormSuccess(true)
+        })
 
-                // Definition for Message Version 2
-                // TODO Add email address to Loops.so
-                {
-                    "to": [
-                        {
-                            "email": formData['email'],
-                            "name": formData['name']
-                        },
-                    ],
-                    "htmlContent": "<!DOCTYPE html><html><body><h1>Beste</h1><p>We hebben je inzending goed ontvangen en nemen zo snel mogelijk contact met je op.</p></body></html>",
-                    "subject": "We hebben je inzending goed ontvangen!"
-                }
-            ]
-
-        }); // SendSmtpEmail | Values to send a transactional email
-
-        apiInstance.sendTransacEmail(sendSmtpEmail).then(function (data) {
-            console.log('API called successfully. Returned data: ' + data);
-        }, function (error) {
-            console.error(error);
-        });
+        // let voornaam = document.getElementsByName('Voornaam')[0].value;
+        // let naam = document.getElementsByName('Naam')[0].value;
+        // let email = document.getElementsByName('E-mail')[0].value;
+        // let bedrijf = document.getElementsByName('Bedrijf')[0].value;
+        // let telefoon = document.getElementsByName('Telefoon')[0].value;
+        // let fase = document.getElementsByName('Fase')[0].value;
+        // let vraag = document.getElementsByName('Vraag')[0].value;
+        // let userGroup = document.getElementsByName('userGroup')[0].value;
+        //
+        // fetch("https://app.loops.so/api/newsletter-form/clw3p9dyl039ts88steniolch", {
+        //     method: "POST",
+        //     body: formBody,
+        //     headers: {
+        //         "Content-Type": "application/x-www-form-urlencoded",
+        //     },
+        // });
     }
 
     return (
