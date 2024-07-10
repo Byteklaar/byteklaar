@@ -4,7 +4,6 @@ import {LinkButton} from "@/components/ui/LinkButton";
 
 export async function FooterCTA({data}) {
     const {image, titel, link} = data;
-    // TODO animatie 3d object
     return (
         <div className="flex flex-col lg:flex-row bg-byte-blue z-10">
             <div className="basis-full flex justify-center lg:basis-2/5 bg-byte-terra z-0 px-12 py-8 lg:py-4 max-w-full lg:max-w-xl">
