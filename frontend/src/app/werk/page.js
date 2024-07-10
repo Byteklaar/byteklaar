@@ -5,6 +5,6 @@ export default async function Page() {
     const projectData = await getProjectenData();
 
     return (
-        <ProjectenGallerij data={projectData.data} />
+        <ProjectenGallerij id="top" data={projectData.data} />
     )
 }
