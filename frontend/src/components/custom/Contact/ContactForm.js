@@ -1,9 +1,15 @@
 'use client';
-import nodemailer from 'nodemailer';
+import {emailHandler} from './emailHandler';
 import {useState} from "react";
 
 export function ContactForm({data}) {
     const [formSuccess, setFormSuccess] = useState(false);
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
 
     const handleInput = (e) => {
         const fieldName = e.target.name;
@@ -15,38 +21,13 @@ export function ContactForm({data}) {
         }));
     }
 
-    async function handleSubmit() {
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: "smtp-relay.brevo.com",
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: process.env.BREVO_USER, // generated brevo user
-                pass: process.env.BREVO_PW, // generated brevo password
-            },
-        });
-
-        // send mail with defined transport object
-        let info = await transporter.sendMail({
-            from: 'info@byteklaar.be', // sender address
-            to: "info@byteklaar", // list of receivers
-            subject: "Hello ✔", // Subject line
-            text: "Hello {{ contact.FIRSTNAME }} , This is an SMTP message with customizations", // plain text body
-        }).then(() => {
-            setFormSuccess(true);
-        });
-
-        console.log("Message sent: %s", info.messageId);
-    }
-
     return (
         <div>
             {formSuccess ?
                 <div>Formulier succesvol verzonden.</div>
                 :
                 <form method="post"
-                      onSubmit={handleSubmit}
+                      onSubmit={(e) => handleSubmit(e, setFormSuccess)}
                       className="flex flex-col lg:grid lg:grid-flow-row lg:grid-cols-2 gap-x-8 gap-y-3">
                     <input type="hidden" name="userGroup" value="Website contactForm"/>
                     {data.field.map((field) => (
