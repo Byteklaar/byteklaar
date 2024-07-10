@@ -119,17 +119,6 @@ html {
     flex-direction: column;
 }
 
-.text-item__title {
-    font-size: 5em;
-}
-
-/* Start Changes */
-
-.text-item__text {
-    font-size: 1em;
-    max-width: 450px;
-}
-
 /* End Changes */
 
 .line {
