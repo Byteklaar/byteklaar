@@ -3,7 +3,18 @@ import nodemailer from 'nodemailer';
 import {useState} from "react";
 
 export function ContactForm({data}) {
-    const [formSuccess, setFormSuccess] = useState(false)
+    const [formSuccess, setFormSuccess] = useState(false);
+
+    const handleInput = (e) => {
+        const fieldName = e.target.name;
+        const fieldValue = e.target.value;
+
+        setFormData((prevState) => ({
+            ...prevState,
+            [fieldName]: fieldValue
+        }));
+    }
+
     async function handleSubmit() {
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
