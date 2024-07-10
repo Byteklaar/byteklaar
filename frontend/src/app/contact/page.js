@@ -19,7 +19,6 @@ function getIcon(name) {
 export default async function Contact() {
     const contactData = await getContactData();
     const {titel, adresStraat, adresPostcode, mail, telefoon, openingsuren, socialLinks, formulier} = contactData;
-    // TODO create SMTP connection
     return (
         <div className="bg-byte-blue p-8 lg:p-16">
             <div className="container">
