@@ -1,6 +1,5 @@
 'use client';
 import {useEffect, useState} from 'react';
-import Brevo from "@getbrevo/brevo";
 
 export function ContactForm({data}) {
     const [formData, setFormData] = useState({name: '', email: '', message: ''});
