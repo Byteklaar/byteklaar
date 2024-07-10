@@ -5,7 +5,6 @@ import Link from "next/link";
 export default async function Page({params}) {
     const slug = params.slug;
     const projectData = await getProjectSingleData(slug);
-    console.data(projectData);
     return (
         <div id="top" className="container p-8">
             <div className="block lg:flex justify-between content-start">
