@@ -108,15 +108,15 @@ html {
     position: relative;
     z-index: 1;
     left: 30%;
+    margin-right: 30%;
     overflow: auto;
 }
 
 .text-item {
     height: 100vh;
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    gap: 40px;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .text-item__title {
