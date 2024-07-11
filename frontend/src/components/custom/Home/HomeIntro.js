@@ -25,7 +25,7 @@ export function HomeIntro({data}) {
                 className="h-[100vh] py-32 w-screen"
                 controls={false}
                 autoplay={true}
-                muted={true}
+                muted={muted}
                 height={2560}
                 src={LogoAnimation.url}
                 width={2560}
