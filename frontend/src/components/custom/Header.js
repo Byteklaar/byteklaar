@@ -2,10 +2,10 @@
 import Link from "next/link";
 import {Logo} from "@/components/custom/Logo";
 import Image from 'next/image';
+import {useEffect, useState} from "react";
 
 export function Header({data}) {
     const {logoImage, menuLink} = data;
-
     const handleClick = () => {
         const menu = document.getElementById('nav');
         const OpenButton = document.getElementById('openMenu');
@@ -19,6 +19,7 @@ export function Header({data}) {
     };
 
     return (
+        // TODO Mobile menu design
         <div className="bg-byte-blue py-8 px-16">
             <div className="container flex md:flex-row flex-col items-center justify-between">
                 <div className="logo">
@@ -55,7 +56,7 @@ export function Header({data}) {
                         </svg>
                     </button>
                     {menuLink.map((menu) => (
-                        <Link className="text-white mb-4 text-xl" href={menu.url}
+                        <Link onClick={handleClick} className="text-white mb-4 text-xl" href={menu.url}
                               key={menu.id}>{menu.text}</Link>
                     ))}
                 </div>

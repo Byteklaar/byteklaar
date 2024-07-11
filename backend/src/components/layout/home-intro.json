@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_home_intros",
+  "info": {
+    "displayName": "Home Intro",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "LogoAnimation": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -17,7 +17,7 @@ export default async function Page({params}) {
                          className="relative block achtergrond w-full flex flex-col items-center mb-16"
                     >
                         <StrapiImage
-                            className="my-16 w-8/12 z-50"
+                            className="my-16 w-11/12 md:w-8/12 z-30"
                             src={afbeelding.url}
                             width={1000}
                             height={1000}
@@ -29,7 +29,7 @@ export default async function Page({params}) {
                     <p className="w-full lg:w-4/12">{projectData.extra_beschrijving}</p>
                 </div>
                 <div className="flex justify-start lg:justify-end w-full my-0 lg:my-12">
-                    <Link className="w-full lg:w-4/12 text-4xl" href="#top">Terug naar boven</Link>
+                    <Link className="w-full lg:w-4/12 text-4xl" href={`/projecten/${projectData.id}`}>Terug naar boven</Link>
                 </div>
             </div>
         </div>

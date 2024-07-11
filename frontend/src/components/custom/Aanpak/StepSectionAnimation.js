@@ -269,7 +269,7 @@ export function StepSectionAnimation({data}) {
                         <div key={stap.id} className={`relative text-item text-item--${index}`}>
                             <div class="flex justify-end">
                                 <StrapiImage
-                                    className="w-6/12 top-0 left-1/4"
+                                    className="w-6/12 mb-2"
                                     alt={stap.text}
                                     src={stap.afbeelding.url}
                                     height={3048}
@@ -277,8 +277,8 @@ export function StepSectionAnimation({data}) {
                                 />
                             </div>
                             <div>
-                                <p className="text-item__title">{stap.text}</p>
-                                <div className="text-item__text">
+                                <p className="text-item__title text-2xl md:text-5xl mb-2">{stap.text}</p>
+                                <div className="text-item__text text-base md:text-lg w-full md:w-4/12">
                                     <BlockRendererClient content={stap.beschrijving}/>
                                 </div>
                             </div>

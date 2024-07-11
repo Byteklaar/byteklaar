@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_text_pages",
+  "info": {
+    "displayName": "Text page",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "titel": {
+      "type": "string"
+    },
+    "tekst": {
+      "type": "blocks"
+    },
+    "download": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    }
+  }
+}

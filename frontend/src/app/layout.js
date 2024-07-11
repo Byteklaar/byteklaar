@@ -23,6 +23,7 @@ export default async function RootLayout({children}) {
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="beforeInteractive"/>
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" strategy="beforeInteractive"/>
         <Script src="https://dfrnc.com/lib/SplitText.min.js" strategy="beforeInteractive" />
+        <link rel="icon" href="/icons/favicon.ico" sizes="any" />
         <Header data={globalData.header}/>
         <div>{children}</div>
         <FooterCTA data={globalData.footerCta}/>
