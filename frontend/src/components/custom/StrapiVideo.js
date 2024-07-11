@@ -25,7 +25,7 @@ export function StrapiVideo({
     const videoFallback = `https://placehold.co/${width}x${height}`;
 
     return (
-        <video width={width} height={height} className={className} controls={controls} autoPlay={autoplay} muted>
+        <video width={width} height={height} className={className} controls={controls} autoPlay={autoplay} muted={muted}>
             <source src={videoUrl} type="video/mp4"/>
             Your browser does not support the video tag.
         </video>
