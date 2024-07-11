@@ -61,8 +61,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/*Start Changeds */
-
 .main-circle {
     width: 40%;
     border-radius: 50%;
@@ -73,9 +71,7 @@ html {
     left: 0%;
     transform: translate(-50%, -50%);
 }
-/* End Changes */
 
-/*Start Changeds */
 .small-circle {
     background-color: var(--bg-color);
     width: 2.5em;
@@ -88,20 +84,31 @@ html {
     font-size: 2em;
     transform: rotate(80deg);
 }
-/* End Changes */
 
-/*Start Changeds */
 .small-circle-line {
     width: calc(50% + 2.5em);
     height: 2px;
-    position: relative;
+    position: absolute;
     top: 50%;
-    transform: translate(-2.5em, 0) rotate(-80deg);
+    transform: translate(-2.5em, 0) rotate(-60deg);
     transform-origin: right;
     display: flex;
     align-items: center;
+    pointer-events: none;
 }
-/* End Changes */
+
+@media screen and (max-width: 767px) {
+    .small-circle {
+        width: 2.5em;
+        height: 2.5em;
+        font-size: 1em;
+        transform: rotate(60deg);
+    }
+
+    .small-circle-line {
+        width: calc(50% + 1.8em);
+    }
+}
 
 .text-container {
     height: 100%;
@@ -113,7 +120,7 @@ html {
 }
 
 .text-item {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
