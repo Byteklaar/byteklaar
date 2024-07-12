@@ -33,6 +33,10 @@ export async function getHomePageData() {
                     LogoAnimation: {
                         fields: ["url", "alternativeText"],
                     },
+                    // TODO Add to CMS
+                    // LogoAnimationSafari: {
+                    //     fields: ["url", "alternativeText"],
+                    // },
                     image: {
                         fields: ["url", "alternativeText"],
                     },
