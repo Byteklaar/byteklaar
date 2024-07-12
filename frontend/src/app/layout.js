@@ -4,7 +4,7 @@ import {Header} from "@/components/custom/Header";
 import {Footer} from "@/components/custom/Footer";
 import {FooterCTA} from "@/components/custom/FooterCTA";
 import Script from "next/script";
-import Fathom from './Fathom';
+import Fathom from './fathom';
 
 export async function generateMetadata() {
     const metadata = await getGlobalPageMetadata();
