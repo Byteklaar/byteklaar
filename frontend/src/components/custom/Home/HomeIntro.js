@@ -2,6 +2,7 @@
 import {StrapiVideo} from "@/components/custom/StrapiVideo";
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
+import {isMobileSafari} from 'react-device-detect';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(useGSAP);
@@ -19,13 +20,10 @@ export function HomeIntro({data}) {
             ease: 'power3.in'
         })
     });
-    const isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {
-        return p.toString() === "[object SafariRemoteNotification]";
-    })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 
     return (
         <div>
-            {isSafari ?
+            {isMobileSafari ?
                 <div></div>
                 :
                 <div className="strapiAnimation absolute top-0 z-50 bg-byte-blue overflow-hidden">
