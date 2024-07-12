@@ -19,17 +19,27 @@ export function HomeIntro({data}) {
             ease: 'power3.in'
         })
     });
+    const isSafari = /constructor/i.test(window.HTMLElement) || (function (p) {
+        return p.toString() === "[object SafariRemoteNotification]";
+    })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
     return (
-        <div className="strapiAnimation absolute top-0 z-50 bg-byte-blue overflow-hidden">
-            <StrapiVideo
-                className="h-[100vh] py-32 w-screen"
-                controls={false}
-                autoplay={true}
-                muted={true}
-                height={2560}
-                src={LogoAnimation.url}
-                width={2560}
-            />
+        <div>
+            {isSafari ?
+                <div></div>
+                :
+                <div className="strapiAnimation absolute top-0 z-50 bg-byte-blue overflow-hidden">
+                    <StrapiVideo
+                        className="h-[100vh] py-32 w-screen"
+                        controls={false}
+                        autoplay={true}
+                        muted={true}
+                        height={2560}
+                        src={LogoAnimation.url}
+                        width={2560}
+                    />
+                </div>
+            }
         </div>
     );
 }
