@@ -1,10 +1,11 @@
 import "./globals.css";
 import {getGlobalPageData, getGlobalPageMetadata} from "@/data/loaders";
 import {Header} from "@/components/custom/Header";
+import {HeadSeo} from "@/components/custom/HeadSeo";
 import {Footer} from "@/components/custom/Footer";
 import {FooterCTA} from "@/components/custom/FooterCTA";
+import Fathom from "@/app/fathom";
 import Script from "next/script";
-import Fathom from './fathom';
 
 export async function generateMetadata() {
     const metadata = await getGlobalPageMetadata();
@@ -20,13 +21,13 @@ export default async function RootLayout({children}) {
 
     return (
         <html lang="en">
-        <body className="font-display overflow-x-hidden">
         <Fathom />
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="beforeInteractive"/>
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" strategy="beforeInteractive"/>
         <Script src="https://dfrnc.com/lib/SplitText.min.js" strategy="beforeInteractive" />
         <link rel="icon" href="/icons/favicon.ico" sizes="any" />
-        <Header data={globalData.header}/>
+        <body className="font-display overflow-x-hidden">
+        <Header/>
         <div>{children}</div>
         <FooterCTA data={globalData.footerCta}/>
         <Footer data={globalData.footer}/>
