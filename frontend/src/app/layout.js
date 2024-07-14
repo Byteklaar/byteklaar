@@ -1,7 +1,7 @@
 import "./globals.css";
 import {getGlobalPageData, getGlobalPageMetadata} from "@/data/loaders";
 import {Header} from "@/components/custom/Header";
-import {HeadSeo} from "@/components/custom/HeadSeo";
+// import {HeadSeo} from "@/components/custom/HeadSeo";
 import {Footer} from "@/components/custom/Footer";
 import {FooterCTA} from "@/components/custom/FooterCTA";
 import Fathom from "@/app/fathom";
@@ -26,8 +26,9 @@ export default async function RootLayout({children}) {
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" strategy="beforeInteractive"/>
         <Script src="https://dfrnc.com/lib/SplitText.min.js" strategy="beforeInteractive" />
         <link rel="icon" href="/icons/favicon.ico" sizes="any" />
+        {/*<Head data={globalData.header}/>*/}
         <body className="font-display overflow-x-hidden">
-        <Header/>
+        <Header data={globalData.header}/>
         <div>{children}</div>
         <FooterCTA data={globalData.footerCta}/>
         <Footer data={globalData.footer}/>
