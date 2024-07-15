@@ -1,4 +1,3 @@
-// Fathom.tsx
 'use client';
 
 import { load, trackPageview } from 'fathom-client';
