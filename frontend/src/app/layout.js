@@ -21,11 +21,29 @@ export default async function RootLayout({children}) {
 
     return (
         <html lang="en">
-        <Fathom />
+        <Fathom/>
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="beforeInteractive"/>
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" strategy="beforeInteractive"/>
-        <Script src="https://dfrnc.com/lib/SplitText.min.js" strategy="beforeInteractive" />
-        <link rel="icon" href="/icons/favicon.ico" sizes="any" />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"
+                strategy="beforeInteractive"/>
+        <Script src="https://dfrnc.com/lib/SplitText.min.js" strategy="beforeInteractive"/>
+        <Script id="Leadinfo-Script">
+            {`function (l, e, a, d, i, n, f, o) {
+                if (!l[i]) {
+                    l.GlobalLeadinfoNamespace = l.GlobalLeadinfoNamespace || [];
+                    l.GlobalLeadinfoNamespace.push(i);
+                    l[i] = function () {
+                        (l[i].q = l[i].q || []).push(arguments)
+                    };
+                    l[i].t = l[i].t || n;
+                    l[i].q = l[i].q || [];
+                    o = e.createElement(a);
+                    f = e.getElementsByTagName(a)[0];
+                    o.async = 1;
+                    o.src = d;
+                    f.parentNode.insertBefore(o, f);
+                }
+            }(window, document, "script", "https://cdn.leadinfo.net/ping.js", "leadinfo", "LI-66951DF07CA22"))`}</Script>
+        <link rel="icon" href="/icons/favicon.ico" sizes="any"/>
         {/*<Head data={globalData.header}/>*/}
         <body className="font-display overflow-x-hidden">
         <Header data={globalData.header}/>
