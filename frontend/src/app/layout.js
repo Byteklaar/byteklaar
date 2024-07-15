@@ -23,6 +23,7 @@ export default async function RootLayout({children}) {
         <html lang="en">
         <Fathom/>
         <Script
+            id="leadInfoScript"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
                 __html: `
