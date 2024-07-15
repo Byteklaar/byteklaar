@@ -27,7 +27,7 @@ export default async function RootLayout({children}) {
                 strategy="beforeInteractive"/>
         <Script src="https://dfrnc.com/lib/SplitText.min.js" strategy="beforeInteractive"/>
         <Script id="L=leadinfo-script" strategy="beforeInteractive">
-            {`(function leadinfo (l, e, a, d, i, n, f, o) {
+            {`function leadinfo (l, e, a, d, i, n, f, o) {
                 if (!l[i]) {
                     l.GlobalLeadinfoNamespace = l.GlobalLeadinfoNamespace || [];
                     l.GlobalLeadinfoNamespace.push(i);
@@ -42,7 +42,7 @@ export default async function RootLayout({children}) {
                     o.src = d;
                     f.parentNode.insertBefore(o, f);
                 }
-            }(window, document, "script", "https://cdn.leadinfo.net/ping.js", "leadinfo", "LI-66951DF07CA22"));`}</Script>
+            }(window, document, "script", "https://cdn.leadinfo.net/ping.js", "leadinfo", "LI-66951DF07CA22");`}</Script>
         <link rel="icon" href="/icons/favicon.ico" sizes="any"/>
         {/*<Head data={globalData.header}/>*/}
         <body className="font-display overflow-x-hidden">
