@@ -27,7 +27,7 @@ export default async function RootLayout({children}) {
                 strategy="beforeInteractive"/>
         <Script src="https://dfrnc.com/lib/SplitText.min.js" strategy="beforeInteractive"/>
         <Script id="Leadinfo-Script">
-            {`function (l, e, a, d, i, n, f, o) {
+            {`function leadinfo(l, e, a, d, i, n, f, o) {
                 if (!l[i]) {
                     l.GlobalLeadinfoNamespace = l.GlobalLeadinfoNamespace || [];
                     l.GlobalLeadinfoNamespace.push(i);
