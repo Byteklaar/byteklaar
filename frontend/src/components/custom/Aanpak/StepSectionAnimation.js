@@ -36,7 +36,20 @@ export function StepSectionAnimation({data}) {
         const initializeGsap = () => {
             gsap.registerPlugin(ScrollTrigger, SplitText);
 
-            let tl = gsap.timeline();
+      if (
+        typeof window !== "undefined" &&
+        window.gsap &&
+        window.ScrollTrigger &&
+        window.SplitText
+      ) {
+        // Ensure all DOM elements are available
+        if (
+          document.querySelectorAll(".text-item").length > 0 &&
+          document.querySelector(".text-container") &&
+          document.querySelectorAll(".small-circle-line").length > 0 &&
+          document.querySelectorAll(".small-circle").length > 0
+        ) {
+          let tl = gsap.timeline();
 
             let textItems = document.querySelectorAll(".text-item");
 
@@ -75,10 +88,10 @@ export function StepSectionAnimation({data}) {
                 },
             });
 
-            const start = "top center";
-            const end = "bottom top";
-            const scrub = 0.5;
-            const rotate = 280;
+          const start = "top center";
+          const end = "bottom top";
+          const scrub = 0.5;
+          const rotate = window.innerWidth <= 767 ? 310 : 280;
 
             //   First number
 
@@ -96,15 +109,15 @@ export function StepSectionAnimation({data}) {
                 transformOrigin: "50% 50%",
             });
 
-            tl0.to(
-                ".small-circle-line--0",
-                {
-                    rotation: -rotate,
-                    //   x: "-2.5em",
-                    transformOrigin: "right",
-                },
-                "<"
-            );
+          tl0.to(
+            ".small-circle-line--0",
+            {
+              rotation: -rotate,
+              //   x: "-2.5em",
+              transformOrigin: "right !important",
+            },
+            "<"
+          );
 
             //   Second number
 
@@ -122,15 +135,15 @@ export function StepSectionAnimation({data}) {
                 transformOrigin: "50% 50%",
             });
 
-            tl1.to(
-                ".small-circle-line--1",
-                {
-                    rotation: -rotate,
-                    //   x: "-2.5em",
-                    transformOrigin: "right",
-                },
-                "<"
-            );
+          tl1.to(
+            ".small-circle-line--1",
+            {
+              rotation: -rotate,
+              //   x: "-2.5em",
+              transformOrigin: "right !important",
+            },
+            "<"
+          );
 
             //   Third number
 
@@ -148,15 +161,15 @@ export function StepSectionAnimation({data}) {
                 transformOrigin: "50% 50%",
             });
 
-            tl2.to(
-                ".small-circle-line--2",
-                {
-                    rotation: -rotate,
-                    //   x: "-2.5em",
-                    transformOrigin: "right",
-                },
-                "<"
-            );
+          tl2.to(
+            ".small-circle-line--2",
+            {
+              rotation: -rotate,
+              //   x: "-2.5em",
+              transformOrigin: "right !important",
+            },
+            "<"
+          );
 
             //   Fourth number
 
@@ -174,15 +187,15 @@ export function StepSectionAnimation({data}) {
                 transformOrigin: "50% 50%",
             });
 
-            tl3.to(
-                ".small-circle-line--3",
-                {
-                    rotation: -rotate,
-                    //   x: "-2.5em",
-                    transformOrigin: "right",
-                },
-                "<"
-            );
+          tl3.to(
+            ".small-circle-line--3",
+            {
+              rotation: -rotate,
+              //   x: "-2.5em",
+              transformOrigin: "right !important",
+            },
+            "<"
+          );
 
             //   Fifth number
 
@@ -200,37 +213,45 @@ export function StepSectionAnimation({data}) {
                 transformOrigin: "50% 50%",
             });
 
-            tl4.to(
-                ".small-circle-line--4",
-                {
-                    rotation: -rotate,
-                    //   x: "-2.5em",
-                    transformOrigin: "right",
-                },
-                "<"
+          tl4.to(
+            ".small-circle-line--4",
+            {
+              rotation: -rotate,
+              //   x: "-2.5em",
+              transformOrigin: "right !important",
+            },
+            "<"
+          );
+
+          textItems.forEach((item, index) => {
+            let textSplit = new SplitText(
+              item.querySelector(`.text-item__text`),
+              {
+                type: "lines",
+                linesClass: `line`,
+              }
             );
 
-            textItems.forEach((item, index) => {
-                let textSplit = new SplitText(item.querySelector(`.text-item__text`), {
-                    type: "lines",
-                    linesClass: `line`,
-                });
-
-                textSplit.lines.forEach((line) => {
-                    gsap.to(line, {
-                        scrollTrigger: {
-                            trigger: `.text-item--${index}`,
-                            start: "top center+=10%",
-                            end: "bottom 50%",
-                            toggleActions: "play none none reverse",
-                        },
-                        opacity: 1,
-                        duration: 1,
-                        ease: "power1.inOut",
-                    });
-                });
+            textSplit.lines.forEach((line) => {
+              gsap.to(line, {
+                scrollTrigger: {
+                  trigger: `.text-item--${index}`,
+                  start: "top center+=10%",
+                  end: "bottom 50%",
+                  toggleActions: "play none none reverse",
+                },
+                opacity: 1,
+                duration: 1,
+                ease: "power1.inOut",
+              });
             });
-        };
+          });
+        } else {
+          // Retry initialization if DOM elements are not yet available
+          setTimeout(initializeGsap, 100);
+        }
+      }
+    };
 
         // Ensure gsap is available globally before running the script
         if (
@@ -246,6 +267,18 @@ export function StepSectionAnimation({data}) {
     }, []);
     return (
         <>
+        <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        strategy="beforeInteractive"
+      />
+      <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"
+        strategy="beforeInteractive"
+      />
+      <Script
+        src="https://dfrnc.com/lib/SplitText.min.js"
+        strategy="beforeInteractive"
+      />
             <div className="animation-wrapper">
                 <div className="main-circle">
                     <div className="small-circle-line small-circle-line--0">
