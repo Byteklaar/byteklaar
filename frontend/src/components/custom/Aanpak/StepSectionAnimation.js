@@ -343,7 +343,7 @@ export function StepSectionAnimation({data}) {
                                 />
                             </div>
                             <div>
-                                <p className="mb-4 flex justify-center items-center rounded-full w-32 h-32 border border-black">{index+1}</p>
+                                <p className="mb-4 flex justify-center items-center rounded-full w-16 h-16 border border-black">{index+1}</p>
                                 <p className="text-2xl md:text-5xl mb-2">{stap.text}</p>
                                 <div className="text-base md:text-lg w-full md:w-4/12">
                                     <BlockRendererClient content={stap.beschrijving}/>
