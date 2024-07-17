@@ -287,18 +287,6 @@ export function StepSectionAnimation({data}) {
     }, []);
     return (
         <>
-            <Script
-                src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-                strategy="beforeInteractive"
-            />
-            <Script
-                src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"
-                strategy="beforeInteractive"
-            />
-            <Script
-                src="https://dfrnc.com/lib/SplitText.min.js"
-                strategy="beforeInteractive"
-            />
             <div className="hidden md:block">
                 <div className="animation-wrapper">
                     <div className="main-circle">
@@ -341,7 +329,7 @@ export function StepSectionAnimation({data}) {
                     </div>
                 </div>
             </div>
-            <div className="block md:hidden">
+            <div className="block md:hidden container px-8 lg:px-16">
                 <div>
                     {stap.map((stap, index) =>
                         <div key={stap.id} className="relative">
@@ -355,7 +343,7 @@ export function StepSectionAnimation({data}) {
                                 />
                             </div>
                             <div>
-                                <p>{index+1}</p>
+                                <p className="mb-4 flex justify-center items-center rounded-full w-32 h-32 border border-black">{index+1}</p>
                                 <p className="text-2xl md:text-5xl mb-2">{stap.text}</p>
                                 <div className="text-base md:text-lg w-full md:w-4/12">
                                     <BlockRendererClient content={stap.beschrijving}/>

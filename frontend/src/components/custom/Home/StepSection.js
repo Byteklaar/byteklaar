@@ -65,7 +65,7 @@ export function StepSection({data}) {
                     </h3>
                     <div className="block md:hidden">
                         <div
-                            className="animation_wrapper-chain grid grid-rows-5 lg:grid-rows-none lg:grid-cols-5 items-center step-container content-center text-center mt-16 w-full">
+                            className="grid grid-rows-5 lg:grid-rows-none lg:grid-cols-5 items-center content-center text-center mt-16 w-full">
                             {stap.map((stap, index) => (
                                 <div id={`step-${index}`} className="step" key={stap.id}>
                                     <Step counter={index} text={stap.text}/>
@@ -75,7 +75,7 @@ export function StepSection({data}) {
                     </div>
                     <div className="hidden md:block">
                         <div
-                            className="grid grid-rows-5 lg:grid-rows-none lg:grid-cols-5 items-center content-center text-center mt-16 w-full">
+                            className="animation_wrapper-chain grid grid-rows-5 lg:grid-rows-none lg:grid-cols-5 items-center step-container content-center text-center mt-16 w-full">
                             {stap.map((stap, index) => (
                                 <div id={`step-${index}`} className="step" key={stap.id}>
                                     <Step counter={index} text={stap.text}/>

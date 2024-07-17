@@ -6,6 +6,7 @@ import {Footer} from "@/components/custom/Footer";
 import {FooterCTA} from "@/components/custom/FooterCTA";
 import Fathom from "@/app/fathom";
 import Script from "next/script";
+import React from "react";
 
 export async function generateMetadata() {
     const metadata = await getGlobalPageMetadata();
@@ -21,6 +22,18 @@ export default async function RootLayout({children}) {
 
     return (
         <html lang="en">
+        <Script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+            strategy="beforeInteractive"
+        />
+        <Script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"
+            strategy="beforeInteractive"
+        />
+        <Script
+            src="https://dfrnc.com/lib/SplitText.min.js"
+            strategy="beforeInteractive"
+        />
         <Fathom/>
         <Script
             id="leadInfoScript"
