@@ -329,7 +329,7 @@ export function StepSectionAnimation({data}) {
                     </div>
                 </div>
             </div>
-            <div className="block md:hidden container px-8 lg:px-16">
+            <div className="block md:hidden container mb-16 px-8 lg:px-16">
                 <div>
                     {stap.map((stap, index) =>
                         <div key={stap.id} className="relative">
