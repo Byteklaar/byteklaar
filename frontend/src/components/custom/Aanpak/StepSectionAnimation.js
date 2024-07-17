@@ -299,28 +299,53 @@ export function StepSectionAnimation({data}) {
                 src="https://dfrnc.com/lib/SplitText.min.js"
                 strategy="beforeInteractive"
             />
-            <div className="animation-wrapper">
-                <div className="main-circle">
-                    <div className="small-circle-line small-circle-line--0">
-                        <div className="small-circle small-circle--0">1</div>
+            <div className="hidden md:block">
+                <div className="animation-wrapper">
+                    <div className="main-circle">
+                        <div className="small-circle-line small-circle-line--0">
+                            <div className="small-circle small-circle--0">1</div>
+                        </div>
+                        <div className="small-circle-line small-circle-line--1">
+                            <div className="small-circle small-circle--1">2</div>
+                        </div>
+                        <div className="small-circle-line small-circle-line--2">
+                            <div className="small-circle small-circle--2">3</div>
+                        </div>
+                        <div className="small-circle-line small-circle-line--3">
+                            <div className="small-circle small-circle--3">4</div>
+                        </div>
+                        <div className="small-circle-line small-circle-line--4">
+                            <div className="small-circle small-circle--4">5</div>
+                        </div>
                     </div>
-                    <div className="small-circle-line small-circle-line--1">
-                        <div className="small-circle small-circle--1">2</div>
-                    </div>
-                    <div className="small-circle-line small-circle-line--2">
-                        <div className="small-circle small-circle--2">3</div>
-                    </div>
-                    <div className="small-circle-line small-circle-line--3">
-                        <div className="small-circle small-circle--3">4</div>
-                    </div>
-                    <div className="small-circle-line small-circle-line--4">
-                        <div className="small-circle small-circle--4">5</div>
+                    <div className="text-container">
+                        {stap.map((stap, index) =>
+                            <div key={stap.id} className={`relative text-item text-item--${index}`}>
+                                <div class="flex justify-end">
+                                    <StrapiImage
+                                        className="w-9/12 md:w-6/12 mb-2"
+                                        alt={stap.text}
+                                        src={stap.afbeelding.url}
+                                        height={3048}
+                                        width={2024}
+                                    />
+                                </div>
+                                <div>
+                                    <p className="text-item__title text-2xl md:text-5xl mb-2">{stap.text}</p>
+                                    <div className="text-item__text text-base md:text-lg w-full md:w-4/12">
+                                        <BlockRendererClient content={stap.beschrijving}/>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
-                <div className="text-container">
+            </div>
+            <div className="block md:hidden">
+                <div>
                     {stap.map((stap, index) =>
-                        <div key={stap.id} className={`relative text-item text-item--${index}`}>
-                            <div class="flex justify-end">
+                        <div key={stap.id} className="relative">
+                            <div className="flex justify-end">
                                 <StrapiImage
                                     className="w-9/12 md:w-6/12 mb-2"
                                     alt={stap.text}
@@ -330,8 +355,9 @@ export function StepSectionAnimation({data}) {
                                 />
                             </div>
                             <div>
-                                <p className="text-item__title text-2xl md:text-5xl mb-2">{stap.text}</p>
-                                <div className="text-item__text text-base md:text-lg w-full md:w-4/12">
+                                <p>{index+1}</p>
+                                <p className="text-2xl md:text-5xl mb-2">{stap.text}</p>
+                                <div className="text-base md:text-lg w-full md:w-4/12">
                                     <BlockRendererClient content={stap.beschrijving}/>
                                 </div>
                             </div>

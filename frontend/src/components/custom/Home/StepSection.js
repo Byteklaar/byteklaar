@@ -63,13 +63,25 @@ export function StepSection({data}) {
                     <h3 className="text-4xl xl:text-7xl lg:text-6xl w-full md:w-6/12">
                         {titel}
                     </h3>
-                    <div
-                        className="animation_wrapper-chain grid grid-rows-5 lg:grid-rows-none lg:grid-cols-5 items-center step-container content-center text-center mt-16 w-full">
-                        {stap.map((stap, index) => (
-                            <div id={`step-${index}`} className="step" key={stap.id}>
-                                <Step counter={index} text={stap.text}/>
-                            </div>
-                        ))}
+                    <div className="block md:hidden">
+                        <div
+                            className="animation_wrapper-chain grid grid-rows-5 lg:grid-rows-none lg:grid-cols-5 items-center step-container content-center text-center mt-16 w-full">
+                            {stap.map((stap, index) => (
+                                <div id={`step-${index}`} className="step" key={stap.id}>
+                                    <Step counter={index} text={stap.text}/>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="hidden md:block">
+                        <div
+                            className="grid grid-rows-5 lg:grid-rows-none lg:grid-cols-5 items-center content-center text-center mt-16 w-full">
+                            {stap.map((stap, index) => (
+                                <div id={`step-${index}`} className="step" key={stap.id}>
+                                    <Step counter={index} text={stap.text}/>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className="w-full lg:w-4/12 m-auto lg:mr-0 lg:ml-auto mt-8 lg:mt-16">
                         <p className="mb-6 text-lg">{beschrijving}</p>
