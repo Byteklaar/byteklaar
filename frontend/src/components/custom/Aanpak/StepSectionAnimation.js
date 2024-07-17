@@ -104,6 +104,7 @@ export function StepSectionAnimation({data}) {
                             anticipatePin: 1, // Adds a slight anticipation for a more natural feel
                         },
                     });
+
                     tl0.to(".small-circle--0", {
                         rotation: rotate,
                         transformOrigin: "50% 50%",
@@ -245,6 +246,22 @@ export function StepSectionAnimation({data}) {
                                 ease: "power1.inOut",
                             });
                         });
+
+                        ScrollTrigger.config({
+                            autoRefreshEvents: "load",
+                        });
+
+                        ScrollTrigger.observe({
+                            trigger: "body",
+                            target: window,
+                            type: "touch,pointer,scroll,wheel", // comma-delimited list of what to listen for ("wheel,touch,scroll,pointer")
+                            onUp: () => {
+                                ScrollTrigger.refresh();
+                            },
+                            onDown: () => {
+                                ScrollTrigger.refresh();
+                            },
+                        });
                     });
                 } else {
                     // Retry initialization if DOM elements are not yet available
@@ -263,6 +280,9 @@ export function StepSectionAnimation({data}) {
             initializeGsap();
         } else {
             window.addEventListener("load", initializeGsap);
+            window.addEventListener("load", () => {
+                ScrollTrigger.refresh();
+            });
         }
     }, []);
     return (
