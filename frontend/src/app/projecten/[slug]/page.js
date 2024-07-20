@@ -8,7 +8,7 @@ export default async function Page({params}) {
     return (
         <div id="top" className="container p-8">
             <div className="block lg:flex justify-between content-start">
-                <h1 className="text-4xl mb-4 w-full lg: mb-0lg:text-6xl lg:w-10/12">{projectData.titel}</h1>
+                <h1 className="text-4xl mb-4 w-full lg: mb-0 lg:text-6xl lg:w-10/12">{projectData.titel}</h1>
                 <p className="w-full lg:w-6/12">{projectData.beschrijving}</p>
             </div>
             <div className="project-gallerij mt-8 lg:mt-16 flex flex-col items-center">
@@ -17,7 +17,7 @@ export default async function Page({params}) {
                          className="relative block achtergrond w-full flex flex-col items-center mb-16"
                     >
                         <StrapiImage
-                            className="my-16 w-11/12 md:w-8/12 z-30"
+                            className="my-16 w-11/12 md:w-10/12 z-30"
                             src={afbeelding.url}
                             width={1000}
                             height={1000}
