@@ -9,8 +9,8 @@ export async function sendForm(text) {
             port: 587,
             secure: false, // true for 465, false for other ports
             auth: {
-                user: "info@byteklaar.be", // generated brevo user
-                pass: "THD-kgw2fqa-pmy2wvn", // generated brevo password
+                user: process.env.BREVO_USER, // generated brevo user
+                pass: process.env.BREVO_PW, // generated brevo password
             },
         });
 
